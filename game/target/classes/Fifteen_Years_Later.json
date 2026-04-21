@@ -1,0 +1,203 @@
+[
+    {
+        "name" : "",
+        "text" : "Harsh fluorescent lights of a restaurant kitchen. The sound of clattering plates fills the air.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "'Fifteen years. I’m still waiting, you idiot. Some 'knight' you turned out to be.'",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    },
+    {
+        "name" : "",
+        "text" : "You sigh, wiping down the last table. You’ve traded your 'kingdom' for a cramped apartment and a job as a waitress in a city that never stops moving. Your friend’s face has faded into a blur of dual-colored eyes and a stray mole you can’t quite place anymore.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    },
+    {
+        "name" : "Boss",
+        "text" : "Good work today, (Player Name). Don’t let the door hit you on the way out.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    },
+    {
+        "name" : "MainChar",
+        "text" : "Yeah, yeah. Try not to let the place burn down without me, Boss.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    },
+    {
+        "name" : "",
+        "text" : "You wave him off with a tired smirk, but as you step into the cool evening air, the playful mask slips. Your feet ache, and the silence of the walk home feels heavier than usual.",
+        "background" : "street2.jpg",
+        "image" : ""
+
+    },
+    {
+        "name" : "",
+        "text" : "As you reach your front door, something catches the light. A slip of cream-colored paper is tucked into your weathered mailbox. You bring it inside, kicking off your shoes and dropping your bag with a heavy thud.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "", 
+        "text" : "The envelope is pristine—too expensive for this neighborhood. As you break the seal, the faint, cloying scent of dried roses drifts into the room.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "letter",
+        "text" : "Dear [Player Name], Time has a cruel way of burying the truth, hasn't it? I know of the 'Knight' you lost all those years ago. If you wish to see him again, to see the man he has become. I invite you to play. Seek out Oletus Manor, and your questions will be answered. — The Baron",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Your grip tightens, crinkling the expensive parchment. Your heart thumps against your ribs, a frantic, rhythmic demand for action.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Though there was a doubt lingering in your mind, the fact that they knew of your friend was proof enough to quell that doubt in the bud.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You look around your empty, quiet kitchen. The doubt is there, lingering like a shadow, but the resolve in your chest is colder and harder. It didn't cost you much, just to participate in what ever 'game' the Baron of the manor ought you to play.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    }, 
+    {
+        "name" : "",
+        "text" : "You didn’t rush. Experience had taught you that haste only leads to forgotten keys or burnt toast.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You spent the next few days tying up loose ends—telling your boss you needed an indefinite leave for 'urgent family matters.'",
+        "background" : "kitchen.jpg",
+        "image" : ""
+    }, 
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "' A family crisis. Not a total lie, I suppose, if I still have any family left to find. My employer looked at me as if I were a cracked saucer, but he granted the time. '",
+        "background" : "kitchen.jpg",
+        "image" : ""
+    }, 
+    { 
+        "name" : "MainChar (Internal)",
+        "text" : "'Better he thinks I’m mourning a distant cousin than chasing a phantom from a five-year-old’s memory.'",
+        "background" : "kitchen.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You sent a few vague letters to acquaintances, ensuring no one would file a missing person’s report the moment you stepped off the grid. You packed heavy, prepared for anything from a weekend stay to a long-term siege.",
+        "background" : "home_inside.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The car ride was long and quiet, the city lights fading into the skeletal silhouettes of a dense forest. ",
+        "background" : "street2.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : ". When the taxi finally lurched to a halt, the driver didn't even wait for a tip. He dumped your luggage on the gravel and sped away, the roar of his engine swallowed by the oppressive silence of the valley. ",
+        "background" : "street2.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "'Charming. Nothing says 'welcome' like a terrified local and a mile-long walk in sensible shoes.'",
+        "background" : "street2.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The Manor loomed through the gloom, a jagged crown of stone and ivy. You hauled your trunk toward the iron gates, which stood tall and forbidding.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Before you could even lift the heavy brass knocker, the great oak door groaned open, spilling a sliver of warm, flickering candlelight onto the porch.", 
+        "background" : "big_house.jpg",
+        "image" : "" 
+    },
+    {
+        "name" : "",
+        "text" : "A man stood there, clad in the stiff, black livery of a high-house butler. His face was a pale mask of professional indifference, though his eyes seemed to weigh your very soul.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Butler", 
+        "text" : "Welcome, dear guest. We have been expecting your arrival. Please... step out of the damp.",
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+
+    },
+    {
+        "name" : "MainChar",
+        "text" : "Expecting me? I assume the Baron’s post is more reliable than the city’s, then. I trust my letter of invitation reached the correct hands?",
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    }, 
+    {
+        "name" : "",
+        "text" : "You kept your voice steady, though the sheer scale of the foyer made you feel like the orphan child you once were.", 
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "",
+        "text" : "The butler offered a thin, ghost of a smile. Precisely. If you would follow me, the others are already gathered in the drawing room. Your luggage will be seen to.", 
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "",
+        "text" : "He gestured with a gloved hand toward a set of double doors, from which the scent of pipe tobacco and burning cedar drifted.", 
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "'Other guests.' So I’m not the only soul the Baron has lured into his web. Perhaps... he might even be here too.'", 
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "", 
+        "text" : "The drawing room is a cavern of velvet and shadows, lit only by the dying amber glow of a massive hearth.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "", 
+        "text" : "The air is thick with the smell of coal smoke and the metallic tang of something you can’t quite name.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : " 'So, this is the ‘company’ I’m keeping. A gambler and a stage-actor. The Baron certainly has a type.'",
+        "background" : "big_house.jpg",
+        "image" : "" 
+    }
+
+]

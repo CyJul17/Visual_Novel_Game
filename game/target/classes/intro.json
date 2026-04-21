@@ -1,0 +1,75 @@
+[
+    {
+        "name" : "",
+        "text" : "_the screen is hazy. Soft, nostalgic music plays. ",
+        "background" : "",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "For as long as you can remember you lived in this orphanage, and you will continue to do so until you're adopted or grow to old for the orphanage to care for you anymore. ",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You were named by the director of the orphanage like everyone else, a temporary name until you got adopted. You are (input name). ",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The orphanage was a place of cold stone and shared silences, but he made it feel like a kingdom.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You don’t remember much from back then but one thing for sure is that you were never alone, you had a great friend-who was also your knight. ",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "A game which you love to play with him, acting as his liege.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "But every fairy tale has an ending. The day you turned five, the gates opened for him, and closed for you.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "Wait! You're leaving? You... you promised we’d always play together!",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You feel a small, calloused hand reach out, softly stroking your hair. You look up through blurred vision to see that familiar, gap-toothed grin.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Childhood Friend",
+        "text" :  "Don’t cry. What kind of knight leaves their liege behind forever?",
+        "background" : "big_house.jpg",
+        "image" : "orph_kid.png"
+    },
+    {
+        "name" : "",
+        "text" : "He stands tall, or as tall as a five-year-old can, trying to shield you from the cold wind of the courtyard.",
+        "background" : "big_house.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Childhood Friend",
+        "text" :   "I’ll come back for you. I promise. Just wait for me, okay?",
+        "background" : "big_house.jpg",
+        "image" : "orph_kid.png"
+    }
+ 
+]

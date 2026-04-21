@@ -1,0 +1,5 @@
+com.example:demo:jar:1.0-SNAPSHOT
+\- com.fasterxml.jackson.core:jackson-databind:jar:2.17.0:compile
+   +- com.fasterxml.jackson.core:jackson-annotations:jar:2.17.0:compile
+   +- com.fasterxml.jackson.core:jackson-core:jar:2.17.0:compile
+   \- net.bytebuddy:byte-buddy:jar:1.14.9:compile
