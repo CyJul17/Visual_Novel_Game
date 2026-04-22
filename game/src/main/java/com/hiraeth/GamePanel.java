@@ -1,15 +1,14 @@
 package com.hiraeth;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.hiraeth.Data_Model.Dialogue;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,8 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hiraeth.Data_Model.Dialogue;
 
 
 /*
@@ -47,7 +48,7 @@ public class GamePanel extends JPanel {
 
     public GamePanel() {
 
-        loadScript();
+        loadScript("intro.json");
         this.setLayout(null);
         this.setOpaque(false);
 
@@ -99,6 +100,7 @@ public class GamePanel extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 continueClick();
             }
         });
@@ -175,6 +177,7 @@ public class GamePanel extends JPanel {
                 System.out.println("DEBUG: InputStream found: " + (bgInputStream != null));
                 
                 if (bgInputStream != null) {
+
                     backgroundLabel.setIcon(null);
                     System.out.println("Switching background to: " + current.background);
 
@@ -201,9 +204,11 @@ public class GamePanel extends JPanel {
                         System.out.println("DEBUG: Background icon set successfully");
                     }
                 } else {
+                    
                     System.out.println("Error: Background image not found: " + current.background);
                 }
             } catch (Exception e) {
+
                 System.out.println("Error loading background image: " + current.background);
                 e.printStackTrace();
             }
@@ -213,23 +218,22 @@ public class GamePanel extends JPanel {
     
     
 
-    private void loadScript() {
+    private void loadScript(String fileName) {
 
         ObjectMapper mapper = new ObjectMapper(); 
         try {
 
-            InputStream is = getClass().getResourceAsStream("/intro.json");
+            InputStream is = getClass().getResourceAsStream("/" + fileName);
             if (is == null) {
 
-                System.out.println(("Error: We couldn't find the script.json in resources."));
+                System.out.println(("Error: We couldn't find the " + fileName + " in resources."));
                 return;
             }
             script = mapper.readValue(is, new TypeReference<List<Dialogue>>() {});
 
             //Debugging output
-            System.out.println("List size: " + script.size());
-            System.out.println("First line: " + script.get(0).name + ":" + script.get(0).text);
-            System.out.println("Script loaded successfully! Total Lines:" + script.size());
+           
+            System.out.println("Script loaded successfully! Total Lines:" + fileName + " -> " + script.size());
 
         } catch (Exception e) {
 
@@ -263,6 +267,7 @@ public class GamePanel extends JPanel {
                     typewriter.stop();
                 }
         });
+
         typewriter.start();
     }
 
@@ -293,7 +298,9 @@ public class GamePanel extends JPanel {
                 askForName();
             }
 
-            if (currentLine >= script.size()) {
+            if (currentLine >= script.size() - 1) {
+
+                loadScript("Fifteen_Years_Later.json");
 
                 System.out.println("End of the script reached.");
                 return;
@@ -314,11 +321,17 @@ public class GamePanel extends JPanel {
 
                 displayName = playerName;
             }
+
             // change the (input name in the JSON file
-           
             if (rawText.contains("(input name)")) {
 
                 rawText = rawText.replace("(input name)", playerName);
+            } else if (rawText.contains("(Player Name)")) {
+                
+                rawText = rawText.replace("(Player Name)", playerName);
+            } else if ((rawText.contains("[Player Name]"))) { 
+
+                rawText = rawText.replace("[Player Name]", playerName);
             }
 
             // display it in the dialog box
