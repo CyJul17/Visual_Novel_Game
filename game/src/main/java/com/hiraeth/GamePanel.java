@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.io.InputStream;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -37,6 +38,7 @@ import com.hiraeth.Data_Model.Dialogue;
 public class GamePanel extends JPanel {
 
     private String playerName = "Player";
+    private boolean nameAsk = false;
     private Timer typewriter;
     private int charIndex = 0;
     private String fullText;
@@ -45,8 +47,8 @@ public class GamePanel extends JPanel {
     private JTextArea dialogBox;
     private List<Dialogue> script;
     private int currentLine = 0;
-    private float charOpacity = 1.0f;
-    private float bgOpacity = 1.0f;
+    private float charOpacity = 0.0f;
+    private float bgOpacity = 0.0f;
     private Timer charFadeTimer;
     private Timer bgFadeTimer;
     private Image currentCharImage;
@@ -60,7 +62,8 @@ public class GamePanel extends JPanel {
 
         loadScript("intro.json");
         this.setLayout(null);
-        this.setOpaque(false);
+        this.setBackground(Color.BLACK);
+        this.setOpaque(true);
 
         //dialog box
         dialogBox = new JTextArea();
@@ -179,8 +182,6 @@ public class GamePanel extends JPanel {
                         }
             
                     } 
-                        characterLabel.setIcon(null);
-                        characterLabel.revalidate();
                 }
             } else {
                 if (currentCharImage != null) {
@@ -193,57 +194,63 @@ public class GamePanel extends JPanel {
         if (current.background != null && !current.background.isEmpty()) {
 
             String newBgImg = current.background;
-            if (newBgImg != null) {
+             if (!newBgImg.equals(lastBackground)) {
 
-                if (!newBgImg.equals(lastBackground)) {
-                    try {
+                 try {
                         
-                       InputStream bgInputStream = getClass().getResourceAsStream("/backgrounds/" + current.background);
-                        System.out.println("DEBUG: Looking for: /backgrounds/" + current.background);
-                        System.out.println("DEBUG: InputStream found: " + (bgInputStream != null));
+                    InputStream bgInputStream = getClass().getResourceAsStream("/backgrounds/" + newBgImg);
+                    System.out.println("DEBUG: Looking for: /backgrounds/" + current.background);
+                    System.out.println("DEBUG: InputStream found: " + (bgInputStream != null));
                         
-                        if (bgInputStream != null) {
+                    if (bgInputStream != null) {
         
-                            backgroundLabel.setIcon(null);
-                            System.out.println("Switching background to: " + current.background);
+                        backgroundLabel.setIcon(null);
+                        System.out.println("Switching background to: " + current.background);
         
-                            // Use BufferedImage for better loading control
-                            BufferedImage bufferedImage = ImageIO.read(bgInputStream);
+                        // Use BufferedImage for better loading control
+                        BufferedImage bufferedImage = ImageIO.read(bgInputStream);
                             
-                            if (bufferedImage == null) {
+                        if (bufferedImage == null) {
         
-                                System.out.println("ERROR: ImageIO.read returned null - file may be corrupted or unsupported format");
-                            } else {
-        
-                                System.out.println("DEBUG: Image width =" + bufferedImage.getWidth() + ", height =" + bufferedImage.getHeight());
-                                
-                                Image scaledImage = bufferedImage.getScaledInstance(
-                                   backgroundLabel.getWidth(), 
-                                   backgroundLabel.getHeight(),
-                                   Image.SCALE_SMOOTH
-                                );
-        
-                                currentBgImage = scaledImage;
-                                startFadeIn(false);
-                                lastBackground = newBgImg;
-                                backgroundLabel.setBounds(0, 0, 800, 600);
-                                backgroundLabel.revalidate();
-                                backgroundLabel.repaint();
-                                System.out.println("DEBUG: Background icon set successfully");
-                            }
+                        System.out.println("ERROR: ImageIO.read returned null - file may be corrupted or unsupported format");
                         } else {
-                            
-                            System.out.println("Error: Background image not found: " + current.background);
-                        }
-                    } catch (Exception e) {
         
-                        System.out.println("Error loading background image: " + current.background);
-                        e.printStackTrace();
+                        System.out.println("DEBUG: Image width =" + bufferedImage.getWidth() + ", height =" + bufferedImage.getHeight());
+                                
+                        currentBgImage = bufferedImage.getScaledInstance(
+                            backgroundLabel.getWidth(), 
+                            backgroundLabel.getHeight(),
+                            Image.SCALE_SMOOTH
+                        );
+        
+                        lastBackground = newBgImg;
+                        bgOpacity = 0.0f;
+                        startFadeIn(false);
+    
+                        backgroundLabel.setBounds(0, 0, 800, 600);
+                        backgroundLabel.revalidate();
+                        backgroundLabel.repaint();
+                        System.out.println("DEBUG: Background icon set successfully");
+                        }
+                    } else {
+                            
+                        System.out.println("Error: Background image not found: " + current.background);
                     }
+                } catch (Exception e) {
+        
+                    System.out.println("Error loading background image: " + current.background);
+                    e.printStackTrace();
+                }
 
+            } 
+        }  else {
+
+                if (currentBgImage != null) {
+                    
+                startFadeOut(false);
+                lastBackground = "";
                 }
             }
-        }
     }
 }
     
@@ -391,14 +398,13 @@ public class GamePanel extends JPanel {
 
 
             //ask the name if it is line 2.
-            if (currentLine == 2) {
+            if (currentLine == 2 && !nameAsk) {
 
                 askForName();
+                nameAsk = true;
             }
 
             if (currentLine >= script.size() - 1) {
-
-                nextSlide("Fifteen_Years_Later.json");
 
                 System.out.println("End of the script reached.");
                 return;
@@ -452,6 +458,9 @@ public class GamePanel extends JPanel {
 
             this.revalidate();
             this.repaint();
+        } else {
+            System.out.println("Switching file...");
+            nextSlide("Fifteen_Years_Later.json");
         }
     }
 
@@ -460,6 +469,9 @@ public class GamePanel extends JPanel {
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g.create();
+
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, 0, getWidth(), getHeight());
 
         //Draw background opacity.
          if (currentBgImage != null) {
@@ -482,11 +494,16 @@ public class GamePanel extends JPanel {
     private void nextSlide(String nextFile) {
 
         loadScript(nextFile);
-        updateVisuals();
+        currentLine = 0;
+        lastBackground = "";
+        lastCharacter = "";
 
         if (!script.isEmpty()) {
+            updateVisuals();
             Dialogue firstLine = script.get(0);
-            typeWriterEffect(firstLine.name + ": " + firstLine.text, false);
+            String displayName = firstLine.name != null ? firstLine.name : "";
+            String initialText = displayName + " : " + firstLine.text;
+            typeWriterEffect(initialText, false);
         }
        this.repaint();
     }
