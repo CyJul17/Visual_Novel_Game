@@ -1,11 +1,13 @@
 package com.hiraeth;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.awt.AlphaComposite;
 import java.io.InputStream;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -43,6 +45,14 @@ public class GamePanel extends JPanel {
     private JTextArea dialogBox;
     private List<Dialogue> script;
     private int currentLine = 0;
+    private float charOpacity = 1.0f;
+    private float bgOpacity = 1.0f;
+    private Timer charFadeTimer;
+    private Timer bgFadeTimer;
+    private Image currentCharImage;
+    private Image currentBgImage;
+    private String lastBackground = "";
+    private String lastCharacter = "";
 
     // ######################################## Constructor ###################################################
 
@@ -73,8 +83,8 @@ public class GamePanel extends JPanel {
         backgroundLabel.setBounds(0, 0, 800, 600);
 
         this.add(dialogBox);
-        this.add(characterLabel);
-        this.add(backgroundLabel);
+        // this.add(characterLabel);
+        // this.add(backgroundLabel);
 
         updateVisuals();
 
@@ -106,8 +116,8 @@ public class GamePanel extends JPanel {
         });
         
         // To make the background is at the back.
-        this.setComponentZOrder(backgroundLabel, this.getComponentCount() - 1);
         this.repaint(); // Force a repaint to ensure the new Z-order is applied
+        this.setComponentZOrder(backgroundLabel, this.getComponentCount() - 1);
        
         this.setComponentZOrder(dialogBox,0);
         this.setComponentZOrder(characterLabel,1);
@@ -128,95 +138,183 @@ public class GamePanel extends JPanel {
     private void updateVisuals() {
 
         if (script != null && currentLine < script.size()) {
-
+            
             Dialogue current = script.get(currentLine);
-
+            
             //update Sprite
-        if (current.image != null && !current.image.isEmpty()) {
-
-            try {
-
-               java.net.URL imgURL = getClass().getResource("/characters/" + current.image);
-
-                if (imgURL != null) {
-
-                    System.out.println("Character image found: " + current.image);
-                    ImageIcon characterIcon = new ImageIcon(imgURL);
-                    Image scaledImage = characterIcon.getImage().getScaledInstance(
-                        450,
-                        550,
-                        Image.SCALE_SMOOTH
-                    );
+            if (current.image != null && !current.image.isEmpty()) {
+                
+                String newCharImg = current.image;
+                if (newCharImg != null) {
                     
-                    characterLabel.setIcon( new ImageIcon(scaledImage));
-                    characterLabel.setVisible(true);
-                } else {
-
-                    System.out.println("Error: Character image not found: " + current.image);
-                    characterLabel.setIcon(null); 
+                    if (!newCharImg.equals(lastCharacter)) {
+                        
+                        try {
+            
+                           java.net.URL imgURL = getClass().getResource("/characters/" + current.image);
+            
+                            if (imgURL != null) {
+            
+                                System.out.println("Character image found: " + current.image);
+                                ImageIcon characterIcon = new ImageIcon(imgURL);
+                                Image scaledImage = characterIcon.getImage().getScaledInstance(
+                                    450,
+                                    550,
+                                    Image.SCALE_SMOOTH
+                                );
+                                
+                               currentCharImage = scaledImage;
+                               startFadeIn(true);
+                               lastCharacter = newCharImg;
+                               characterLabel.setVisible(true);
+                            } else {
+            
+                                System.out.println("Error: Character image not found: " + current.image);
+                                characterLabel.setIcon(null); 
+                            }
+                        } catch (Exception e) {
+            
+                            System.out.println("Error loading character image: " + current.image);
+                            e.printStackTrace();
+                        }
+            
+                    } 
+                        characterLabel.setIcon(null);
+                        characterLabel.revalidate();
                 }
-            } catch (Exception e) {
-
-                System.out.println("Error loading character image: " + current.image);
-                e.printStackTrace();
-            }
-
-        } else {
-
-            characterLabel.setIcon(null);
-            characterLabel.revalidate();
-        }
+            } else {
+                if (currentCharImage != null) {
+                    startFadeOut(true);
+                    lastCharacter = "";
+                }
+                }
         
             //update Background
         if (current.background != null && !current.background.isEmpty()) {
 
-            try {
-                
-               InputStream bgInputStream = getClass().getResourceAsStream("/backgrounds/" + current.background);
-                System.out.println("DEBUG: Looking for: /backgrounds/" + current.background);
-                System.out.println("DEBUG: InputStream found: " + (bgInputStream != null));
-                
-                if (bgInputStream != null) {
+            String newBgImg = current.background;
+            if (newBgImg != null) {
 
-                    backgroundLabel.setIcon(null);
-                    System.out.println("Switching background to: " + current.background);
-
-                    // Use BufferedImage for better loading control
-                    BufferedImage bufferedImage = ImageIO.read(bgInputStream);
-                    
-                    if (bufferedImage == null) {
-
-                        System.out.println("ERROR: ImageIO.read returned null - file may be corrupted or unsupported format");
-                    } else {
-
-                        System.out.println("DEBUG: Image width =" + bufferedImage.getWidth() + ", height =" + bufferedImage.getHeight());
+                if (!newBgImg.equals(lastBackground)) {
+                    try {
                         
-                        Image scaledImage = bufferedImage.getScaledInstance(
-                           backgroundLabel.getWidth(), 
-                           backgroundLabel.getHeight(),
-                           Image.SCALE_SMOOTH
-                        );
-
-                        backgroundLabel.setIcon(new ImageIcon(scaledImage));
-                        backgroundLabel.setBounds(0, 0, 800, 600);
-                        backgroundLabel.revalidate();
-                        backgroundLabel.repaint();
-                        System.out.println("DEBUG: Background icon set successfully");
+                       InputStream bgInputStream = getClass().getResourceAsStream("/backgrounds/" + current.background);
+                        System.out.println("DEBUG: Looking for: /backgrounds/" + current.background);
+                        System.out.println("DEBUG: InputStream found: " + (bgInputStream != null));
+                        
+                        if (bgInputStream != null) {
+        
+                            backgroundLabel.setIcon(null);
+                            System.out.println("Switching background to: " + current.background);
+        
+                            // Use BufferedImage for better loading control
+                            BufferedImage bufferedImage = ImageIO.read(bgInputStream);
+                            
+                            if (bufferedImage == null) {
+        
+                                System.out.println("ERROR: ImageIO.read returned null - file may be corrupted or unsupported format");
+                            } else {
+        
+                                System.out.println("DEBUG: Image width =" + bufferedImage.getWidth() + ", height =" + bufferedImage.getHeight());
+                                
+                                Image scaledImage = bufferedImage.getScaledInstance(
+                                   backgroundLabel.getWidth(), 
+                                   backgroundLabel.getHeight(),
+                                   Image.SCALE_SMOOTH
+                                );
+        
+                                currentBgImage = scaledImage;
+                                startFadeIn(false);
+                                lastBackground = newBgImg;
+                                backgroundLabel.setBounds(0, 0, 800, 600);
+                                backgroundLabel.revalidate();
+                                backgroundLabel.repaint();
+                                System.out.println("DEBUG: Background icon set successfully");
+                            }
+                        } else {
+                            
+                            System.out.println("Error: Background image not found: " + current.background);
+                        }
+                    } catch (Exception e) {
+        
+                        System.out.println("Error loading background image: " + current.background);
+                        e.printStackTrace();
                     }
-                } else {
-                    
-                    System.out.println("Error: Background image not found: " + current.background);
-                }
-            } catch (Exception e) {
 
-                System.out.println("Error loading background image: " + current.background);
-                e.printStackTrace();
+                }
             }
         }
     }
 }
     
+    private void startFadeIn(boolean isCharacter) {
+
+        if (isCharacter) {
+
+            if (charFadeTimer != null) charFadeTimer.stop();
+            charOpacity = 0.0f;
+            charFadeTimer = new Timer(50, e -> {
+
+                charOpacity += 0.05f;
+                if (charOpacity >= 1.0f) {
+
+                    charOpacity = 1.0f;
+                    charFadeTimer.stop();
+                }
+                repaint();
+            });
+            charFadeTimer.start();
+        } else {
+
+            if (bgFadeTimer != null) bgFadeTimer.stop();
+
+            bgOpacity = 0.0f;
+            bgFadeTimer = new Timer(50 , e -> {
+
+                bgOpacity += 0.05f;
+                if (bgOpacity >= 1.0f) {
+
+                    bgOpacity = 1.0f;
+                    bgFadeTimer.stop();
+                }
+                repaint();
+            });
+            bgFadeTimer.start();
+        }
+    }
     
+    private void startFadeOut(boolean isCharacter) {
+    if (isCharacter) {
+
+            if (charFadeTimer != null) charFadeTimer.stop();
+            charFadeTimer = new Timer(50, e -> {
+
+                charOpacity -= 0.05f;
+                if (charOpacity <= 0.0f) {
+
+                    charOpacity = 0.0f;
+                    charFadeTimer.stop();
+                }
+                repaint();
+            });
+            charFadeTimer.start();
+        } else {
+
+            if (bgFadeTimer != null) bgFadeTimer.stop();
+
+            bgFadeTimer = new Timer(50 , e -> {
+
+                bgOpacity -= 0.05f;
+                if (bgOpacity <= 0.0f) {
+
+                    bgOpacity = 0.0f;
+                    bgFadeTimer.stop();
+                }
+                repaint();
+            });
+            bgFadeTimer.start();
+        }
+    }
 
     private void loadScript(String fileName) {
 
@@ -300,7 +398,7 @@ public class GamePanel extends JPanel {
 
             if (currentLine >= script.size() - 1) {
 
-                loadScript("Fifteen_Years_Later.json");
+                nextSlide("Fifteen_Years_Later.json");
 
                 System.out.println("End of the script reached.");
                 return;
@@ -357,8 +455,40 @@ public class GamePanel extends JPanel {
         }
     }
 
+    @Override
     protected void paintComponent(Graphics g) {
 
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g.create();
+
+        //Draw background opacity.
+         if (currentBgImage != null) {
+
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, bgOpacity));
+            g2d.drawImage(currentBgImage, 0, 0, 800, 600, null);
+        }
+        
+        // Draw Character opacity.
+        if (currentCharImage != null) {
+            
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, charOpacity));
+            g2d.drawImage(currentCharImage, 175, 50, 450, 550, null);
+        }
+
+        g2d.dispose(); // clean the graphics context to prevent memo leaks.
     }
-}
+
+
+    private void nextSlide(String nextFile) {
+
+        loadScript(nextFile);
+        updateVisuals();
+
+        if (!script.isEmpty()) {
+            Dialogue firstLine = script.get(0);
+            typeWriterEffect(firstLine.name + ": " + firstLine.text, false);
+        }
+       this.repaint();
+    }
+
+} // this is the end of the class (If ever you delete this you gonna mess up the code ToT).
