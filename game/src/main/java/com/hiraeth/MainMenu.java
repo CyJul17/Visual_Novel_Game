@@ -7,6 +7,7 @@ public class MainMenu extends JPanel {
 
     private Image bgImage;
     private JLabel title;
+    private JLabel shadow;
     private JButton buttons[];
     private ActionListener startAction;
 
@@ -24,7 +25,16 @@ public class MainMenu extends JPanel {
             System.out.println("Cannot access the background file...");
         }
 
-        //setting up the title 
+        //setting up the shadow of the title
+        shadow = new JLabel("HIRAETH");
+        shadow.setFont(new Font("SERIF", Font.BOLD, 80));
+        shadow.setForeground(new Color(0, 0, 0, 100));
+        shadow.setBounds(55, 55, 500, 100);
+        add(shadow);
+        
+
+
+        //setting up the title
         title = new JLabel("HIRAETH");
         title.setFont(new Font("SERIF", Font.BOLD, 80));
         title.setForeground(Color.WHITE);
@@ -54,6 +64,7 @@ public class MainMenu extends JPanel {
     //method
 
     private JButton buttonStyle(String btnText, int x, int y, ActionListener action) {
+
         //Making new button
         JButton btn = new JButton(btnText);
         btn.setBounds(x, y, 220, 55);
@@ -87,9 +98,13 @@ public class MainMenu extends JPanel {
     protected void paintComponent(Graphics g) {
 
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g.create();
+
         if (bgImage != null) {
 
-            g.drawImage(bgImage, 0, 0, 800, 600, this);
+            g2d.drawImage(bgImage, 0, 0, 800, 600, this);
         }
+         g2d.setColor(new Color(0, 0, 0, 150));
+         g2d.drawString("", title.getX() + 5, title.getY() + 85);
     }
 }

@@ -10,7 +10,10 @@ import java.awt.image.BufferedImage;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.io.InputStream;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import java.util.List;
+import javax.sound.sampled.*;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -131,7 +134,7 @@ public class GamePanel extends JPanel {
     public void launchGame() {
 
         if(currentLine == 0 && script != null && !script.isEmpty()) {
-            
+
             Dialogue firstLine = script.get(0);
             String initialText = dialogueFormat(firstLine.name, firstLine.text);
             typeWriterEffect(initialText, false);
@@ -392,8 +395,29 @@ public class GamePanel extends JPanel {
 
         typewriter.start();
     }
+    private void playSound(String soundFile) {
 
+        try {
+
+            InputStream is = getClass().getResourceAsStream("/Sound_Effects/" + soundFile);
+            if(is == null) {
+                System.out.println("The file is Null");
+            }
+
+            InputStream bufferedIn = new BufferedInputStream(is);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
+
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+
+        } catch (Exception e) {
+            System.out.println("Cannot access the sound file...");
+            e.printStackTrace();
+        }
+    }
     private void continueClick() { 
+
 
         if (script.isEmpty()) {
 
@@ -412,6 +436,7 @@ public class GamePanel extends JPanel {
         if (currentLine < script.size() - 1) {
 
             currentLine++;
+            playSound("Turning_pages.wav");
 
 
             //ask the name if it is line 2.
