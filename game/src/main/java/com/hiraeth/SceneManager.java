@@ -1,6 +1,9 @@
 package com.hiraeth;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 /*
 *
@@ -24,10 +27,26 @@ public class SceneManager extends JFrame {
         this.setTitle("Hiraeth");
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
-        
+
+        //initializing the panels
+        GamePanel game = new GamePanel();
+        MainMenu menu = new MainMenu(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel, "GAME");
+
+                game.requestFocusInWindow();
+                game.launchGame();
+            }
+        });
         //screen
-        panel.add(new GamePanel(), "Hiraeth");
-        this.add(panel);
+        
+        panel.add(menu, "MENU");
+        panel.add(game, "GAME");
+        add(panel);
+
+        cardLayout.show(panel, "MENU");
         this.setVisible(true);
 
 

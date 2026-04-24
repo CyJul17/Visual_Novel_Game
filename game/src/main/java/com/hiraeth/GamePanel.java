@@ -128,7 +128,18 @@ public class GamePanel extends JPanel {
 
     // ######################################### Methods ###################################################
 
+    public void launchGame() {
+
+        if(currentLine == 0 && script != null && !script.isEmpty()) {
+            
+            Dialogue firstLine = script.get(0);
+            String initialText = dialogueFormat(firstLine.name, firstLine.text);
+            typeWriterEffect(initialText, false);
+            updateVisuals();
+        }
+    }
     private String dialogueFormat(String name, String text) {
+        
         if (name == null || name.trim().isEmpty()) {
             return text;
         }
