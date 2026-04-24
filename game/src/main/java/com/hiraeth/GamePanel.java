@@ -86,16 +86,15 @@ public class GamePanel extends JPanel {
         backgroundLabel.setBounds(0, 0, 800, 600);
 
         this.add(dialogBox);
-        // this.add(characterLabel);
-        // this.add(backgroundLabel);
+
 
         updateVisuals();
 
         
         if (script != null && !script.isEmpty()) {
             Dialogue firstLine = script.get(0); 
-            String initialText = firstLine.name + " : " + firstLine.text;
-            typeWriterEffect(initialText, false);
+            String text = dialogueFormat(firstLine.name, firstLine.text);
+            typeWriterEffect(text, false);
         }
 
         //Mouse Eventlistener
@@ -128,6 +127,13 @@ public class GamePanel extends JPanel {
     }
 
     // ######################################### Methods ###################################################
+
+    private String dialogueFormat(String name, String text) {
+        if (name == null || name.trim().isEmpty()) {
+            return text;
+        }
+        return name + ": " + text;
+    }
 
     private void askForName() {
 
@@ -442,7 +448,7 @@ public class GamePanel extends JPanel {
             String finalText;
             if (displayName != null && !displayName.trim().isEmpty()) {
 
-                finalText = displayName + " : " + rawText;
+                finalText = dialogueFormat(displayName, rawText);
             } else {
 
                 finalText = rawText;
@@ -502,8 +508,8 @@ public class GamePanel extends JPanel {
             updateVisuals();
             Dialogue firstLine = script.get(0);
             String displayName = firstLine.name != null ? firstLine.name : "";
-            String initialText = displayName + " : " + firstLine.text;
-            typeWriterEffect(initialText, false);
+            String text = dialogueFormat( displayName, firstLine.text);
+            typeWriterEffect(text, false);
         }
        this.repaint();
     }
