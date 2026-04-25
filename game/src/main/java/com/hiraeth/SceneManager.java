@@ -1,8 +1,8 @@
 package com.hiraeth;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 
 /*
@@ -28,27 +28,57 @@ public class SceneManager extends JFrame {
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
 
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+
+        //Component Listener to move components when minimize or maximize.
+        this.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                int w = getContentPane().getWidth();
+                int h = getContentPane().getWidth();
+                panel.setBounds(0,0, w, h);
+            }
+        });
+            
+        
+
         //initializing the panels
         GamePanel game = new GamePanel();
-        MainMenu menu = new MainMenu(new ActionListener() {
+        MainMenu menu = new MainMenu(e -> {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.show(panel, "GAME");
-
-                game.requestFocusInWindow();
-                game.launchGame();
-            }
+            cardLayout.show(panel, "GAME");
+            game.requestFocusInWindow();
+            game.launchGame();
         });
         //screen
         
-        panel.add(menu, "MENU");
-        panel.add(game, "GAME");
-        add(panel);
+       panel.add(createCenteredWrapper(menu), "MENU");
+       panel.add(createCenteredWrapper(game), "GAME");
+
+       this.add(panel);
 
         cardLayout.show(panel, "MENU");
         this.setVisible(true);
 
 
+    }
+
+    private JPanel createCenteredWrapper(JPanel content) {
+
+        JPanel wrapper = new JPanel(new GridBagLayout());
+
+            wrapper.setBackground(Color.BLACK);
+            // wrapper.add(content, BorderLayout.CENTER);
+
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.anchor = GridBagConstraints.CENTER;
+            content.setPreferredSize(new Dimension(800, 600));
+            content.setMinimumSize(new Dimension(800, 600));;
+            wrapper.add(content, gbc);
+
+            return wrapper;
     }
 }

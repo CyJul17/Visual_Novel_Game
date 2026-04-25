@@ -2,6 +2,8 @@ package com.hiraeth;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class MainMenu extends JPanel {
 
@@ -15,6 +17,29 @@ public class MainMenu extends JPanel {
 
         this.startAction = gameStart;
         this.setLayout(null);
+
+        this.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                // current position 
+                int w = getWidth();
+                int h = getHeight();
+
+                // makes the title stays on the left part
+                title.setBounds(w * 6 / 100, h * 8 / 100,  w / 2, h / 6 );
+
+                // buttons will stack on the right
+                int buttonWidth = 220;
+                int buttonHeight = 55;
+                int positionX = w / 10;
+                int positionY = h / 3;
+                int positionGap = h / 10;
+
+                for (int i = 0; i < buttons.length; i++) {
+
+                    buttons[i].setBounds(positionX, positionY + (i * positionGap), buttonWidth, buttonHeight);
+                }
+            }
+        });
 
         // loading the image:
         try {
@@ -61,7 +86,7 @@ public class MainMenu extends JPanel {
         }
     } 
 
-    //method
+    // ############################## Method ########################################
 
     private JButton buttonStyle(String btnText, int x, int y, ActionListener action) {
 
@@ -102,7 +127,7 @@ public class MainMenu extends JPanel {
 
         if (bgImage != null) {
 
-            g2d.drawImage(bgImage, 0, 0, 800, 600, this);
+            g2d.drawImage(bgImage, 0, 0, this.getWidth(), this.getHeight(), this);
         }
          g2d.setColor(new Color(0, 0, 0, 150));
          g2d.drawString("", title.getX() + 5, title.getY() + 85);

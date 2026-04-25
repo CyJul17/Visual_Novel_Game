@@ -274,19 +274,19 @@
     {
         "name" : "",
         "text" : "You stand there for a moment, waiting for the hospitality that clearly isn't coming. ", 
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.png",
         "image" : ""
     },
     {
         "name" :"MainChar",
         "text" : "Quite the welcoming committee. Does the silence come with the room, or do I have to pay extra for a 'hello'?",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.png",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "The man by the fire doesn't move, but the one leaning against the mantle finally slows his coin-tossing.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.png",
         "image" : ""
     },
     {

@@ -11,7 +11,6 @@ import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.io.InputStream;
 import java.io.BufferedInputStream;
-import java.io.InputStream;
 import java.util.List;
 import javax.sound.sampled.*;
 import javax.imageio.ImageIO;
@@ -58,6 +57,7 @@ public class GamePanel extends JPanel {
     private Image currentBgImage;
     private String lastBackground = "";
     private String lastCharacter = "";
+    private Clip bgm; // The banger :3
 
     // ######################################## Constructor ###################################################
 
@@ -95,6 +95,7 @@ public class GamePanel extends JPanel {
 
         
         if (script != null && !script.isEmpty()) {
+
             Dialogue firstLine = script.get(0); 
             String text = dialogueFormat(firstLine.name, firstLine.text);
             typeWriterEffect(text, false);
@@ -131,7 +132,10 @@ public class GamePanel extends JPanel {
 
     // ######################################### Methods ###################################################
 
+    // The public 
     public void launchGame() {
+
+        playBGM("Far Away(intro).wav");
 
         if(currentLine == 0 && script != null && !script.isEmpty()) {
 
@@ -141,9 +145,70 @@ public class GamePanel extends JPanel {
             updateVisuals();
         }
     }
+
+    public void playBGM(String soundFile) {
+
+        if (bgm != null && bgm.isRunning()) {
+
+            bgm.stop();
+            bgm.close();
+        }
+
+        try {
+
+            InputStream is = getClass().getResourceAsStream("/BGM/" +  soundFile);
+            if (is == null) return;
+
+            AudioInputStream sourceStream = AudioSystem.getAudioInputStream(new BufferedInputStream(is));
+            AudioFormat baseFormat = sourceStream.getFormat();
+            AudioFormat targetFormat = new AudioFormat(
+                AudioFormat.Encoding.PCM_SIGNED,
+                baseFormat.getSampleRate(), 16,
+                baseFormat.getChannels(),
+                baseFormat.getChannels() * 2,
+                baseFormat.getSampleRate(), false
+            );
+
+            AudioInputStream decodedStream = AudioSystem.getAudioInputStream(targetFormat, sourceStream);
+
+            bgm = AudioSystem.getClip();
+            bgm.open(decodedStream);
+            FloatControl gainControl = (FloatControl) bgm.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-10.0f);
+
+
+            bgm.loop(Clip.LOOP_CONTINUOUSLY);
+            bgm.start();
+        } catch (Exception e ) {
+
+            System.out.println("Error cannot acces the mp3..." + e.getMessage());
+        }
+    }
+
+    public void updateMusic(String fileName) {
+
+        switch (fileName) {
+
+            case "intro.json":
+
+                playBGM("Far Away(intro).wav");
+                break;
+            case "Fifteen_Years_Later.json":
+
+                playBGM("Relax(kitchen).wav");
+                break;
+            default:
+
+                System.out.println("There is no music for: " + fileName);
+                break;
+        }
+    }
+
+    // The private ( ͡° ͜ʖ ͡°)
     private String dialogueFormat(String name, String text) {
         
         if (name == null || name.trim().isEmpty()) {
+
             return text;
         }
         return name + ": " + text;
@@ -311,6 +376,7 @@ public class GamePanel extends JPanel {
     }
     
     private void startFadeOut(boolean isCharacter) {
+
     if (isCharacter) {
 
             if (charFadeTimer != null) charFadeTimer.stop();
@@ -356,8 +422,9 @@ public class GamePanel extends JPanel {
             }
             script = mapper.readValue(is, new TypeReference<List<Dialogue>>() {});
 
+           updateMusic(fileName);
+
             //Debugging output
-           
             System.out.println("Script loaded successfully! Total Lines:" + fileName + " -> " + script.size());
 
         } catch (Exception e) {
@@ -401,6 +468,7 @@ public class GamePanel extends JPanel {
 
             InputStream is = getClass().getResourceAsStream("/Sound_Effects/" + soundFile);
             if(is == null) {
+
                 System.out.println("The file is Null");
             }
 
@@ -412,6 +480,7 @@ public class GamePanel extends JPanel {
             clip.start();
 
         } catch (Exception e) {
+
             System.out.println("Cannot access the sound file...");
             e.printStackTrace();
         }
@@ -444,6 +513,12 @@ public class GamePanel extends JPanel {
 
                 askForName();
                 nameAsk = true;
+            }
+            
+            Dialogue forTheButler = script.get(currentLine);
+            if (forTheButler.name.trim().equalsIgnoreCase("Butler")) {
+
+                playBGM("Myuu-Edge-of-Life(butler).wav");
             }
 
             if (currentLine >= script.size() - 1) {
@@ -501,6 +576,7 @@ public class GamePanel extends JPanel {
             this.revalidate();
             this.repaint();
         } else {
+
             System.out.println("Switching file...");
             nextSlide("Fifteen_Years_Later.json");
         }
@@ -513,13 +589,13 @@ public class GamePanel extends JPanel {
         Graphics2D g2d = (Graphics2D) g.create();
 
         g2d.setColor(Color.BLACK);
-        g2d.fillRect(0, 0, getWidth(), getHeight());
+        g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 
         //Draw background opacity.
          if (currentBgImage != null) {
 
             g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, bgOpacity));
-            g2d.drawImage(currentBgImage, 0, 0, 800, 600, null);
+            g2d.drawImage(currentBgImage, 0, 0, getWidth(), getHeight(), null);
         }
         
         // Draw Character opacity.
@@ -541,6 +617,7 @@ public class GamePanel extends JPanel {
         lastCharacter = "";
 
         if (!script.isEmpty()) {
+            
             updateVisuals();
             Dialogue firstLine = script.get(0);
             String displayName = firstLine.name != null ? firstLine.name : "";
