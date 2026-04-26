@@ -12,6 +12,15 @@ public class MainMenu extends JPanel {
     private JLabel shadow;
     private JButton buttons[];
     private ActionListener startAction;
+    private SettingPanel settings;
+
+    public void setSettings(SettingPanel settings) {
+
+        this.settings = settings;
+        this.add(this.settings);
+        this.setComponentZOrder(this.settings, 0);
+        this.settings.setVisible(false);
+    }
 
     public MainMenu(ActionListener gameStart) {
 
@@ -108,11 +117,16 @@ public class MainMenu extends JPanel {
         String getButtonText = button.getText();
 
         if ("Start".equals(getButtonText)) {
+
             startAction.actionPerformed(null);
         } else if ("Quit Game".equals(getButtonText)) {
+
             System.exit(0);
         } else if ("Setting".equals(getButtonText)) {
-            JOptionPane.showMessageDialog(this, "Setting will be coming soon! Pray for the Dev ToT");
+
+           settings.setVisible(true);
+           this.setComponentZOrder(settings, 0);
+           this.repaint();
         } else if ("Load Game".equals(getButtonText)) {
             JOptionPane.showMessageDialog(this, "Load game will be coming soon!");
         }

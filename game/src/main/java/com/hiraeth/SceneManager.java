@@ -45,12 +45,15 @@ public class SceneManager extends JFrame {
 
         //initializing the panels
         GamePanel game = new GamePanel();
+        SettingPanel settings = new SettingPanel(game);
         MainMenu menu = new MainMenu(e -> {
 
             cardLayout.show(panel, "GAME");
             game.requestFocusInWindow();
             game.launchGame();
         });
+        menu.setSettings(settings);
+
         //screen
         
        panel.add(createCenteredWrapper(menu), "MENU");

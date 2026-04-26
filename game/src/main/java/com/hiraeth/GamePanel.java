@@ -62,6 +62,8 @@ public class GamePanel extends JPanel {
     private String lastBackground = "";
     private String lastCharacter = "";
     private Clip bgm; // The banger :3
+    private SettingPanel settings;
+    private int textSpeed = 30;
 
     // ######################################## Constructor ###################################################
 
@@ -93,6 +95,11 @@ public class GamePanel extends JPanel {
         backgroundLabel.setBounds(0, 0, 800, 600);
 
         this.add(dialogBox);
+
+        //adding seetings
+        settings = new SettingPanel(this);
+        this.add(settings);
+        this.setComponentZOrder(settings, 0);
 
 
         updateVisuals();
@@ -208,6 +215,10 @@ public class GamePanel extends JPanel {
         }
     }
 
+    public void setTextSpeed(int speed) {
+        this.textSpeed = speed;
+    }
+
     // The private ( ͡° ͜ʖ ͡°)
     private String dialogueFormat(String name, String text) {
         
@@ -216,6 +227,16 @@ public class GamePanel extends JPanel {
             return text;
         }
         return name + ": " + text;
+    }
+
+    public void toggleSettings() {
+        settings.setVisible(!settings.isVisible());
+
+        if (settings.isVisible()) {
+
+            this.setComponentZOrder(settings, 0);
+        }
+        this.repaint();
     }
 
     private void askForName() {
@@ -453,7 +474,7 @@ public class GamePanel extends JPanel {
         charIndex = 0;
         fullText = text;
         dialogBox.setText(""); // Clear the dialog box
-        typewriter = new Timer(30, e -> {
+        typewriter = new Timer(this.textSpeed, e -> {
 
             if (charIndex < fullText.length()) {
 
