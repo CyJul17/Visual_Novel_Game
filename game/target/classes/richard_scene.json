@@ -1,0 +1,50 @@
+[
+    {
+        "name" : "",
+        "text" : "You move toward the hearth. Richard doesn't move a muscle, but you can feel his gaze tracking your shadow on the floor.",
+        "background" : "abbey_library.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "That fireplace puts out a decent amount of heat. Better than the draft by the door, anyway.",
+        "background" : "abbey_library.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "Comfort is secondary to security. The hearth is the heart of the home; it must be held at all costs.",
+        "background" : "abbey_library.jpg",
+        "image" : "richard_sprites/rich.png"
+    }, 
+    {
+        "name" : "MainChar",
+        "text" : "That's a very... dedicated way of looking at a pile of burning logs. Do you always take your 'watches' this seriously, Mr. Sterling?",
+        "background" : "abbey_library.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "Richard",
+        "text" : "A name is a heavy thing to carry. One must act in a way that is worthy of it. Do you not agree... traveler?",
+        "background" : "abbey_library.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    }, 
+    {
+        "name" : "MainChar",
+        "text" : "I suppose. Though I usually find a comfortable seat is more 'worthy' of my time. You seem like a man who’s traveled quite a bit to end up in a place like this.",
+        "background" : "abbey_library.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    }, 
+    {
+         "name" : "Richard",
+        "text" : "I go where I am summoned. My path is not my own to decide. If the Baron requires a blade, I am the blade.",
+        "background" : "abbey_library.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : " He’s talking in circles. It’s like he’s reading from a script he hasn’t quite memorized. He’s terrified under all that posturing.",
+        "background" : "abbey_library.jpg",
+        "image" : "richard_sprites/rich.png"
+    }
+]

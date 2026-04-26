@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.util.List;
@@ -16,12 +18,14 @@ import javax.sound.sampled.*;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -411,6 +415,7 @@ public class GamePanel extends JPanel {
 
     private void loadScript(String fileName) {
 
+
         ObjectMapper mapper = new ObjectMapper(); 
         try {
 
@@ -459,7 +464,7 @@ public class GamePanel extends JPanel {
                     typewriter.stop();
                 }
         });
-
+        typewriter.setInitialDelay(400);
         typewriter.start();
     }
     private void playSound(String soundFile) {
@@ -487,27 +492,33 @@ public class GamePanel extends JPanel {
     }
     private void continueClick() { 
 
-
-        if (script.isEmpty()) {
-
-            System.out.println("Script not loaded or empty.");
-            return;
-        }
-
+        if (script == null || script.isEmpty()) return;
+        
         if (typewriter != null && typewriter.isRunning()) {
 
             typewriter.stop();
             dialogBox.setText(fullText);
             return;
         }
+       
+        if (script.isEmpty()) {
 
+            System.out.println("Script not loaded or empty.");
+            return;
+        }
 
         if (currentLine < script.size() - 1) {
 
             currentLine++;
+            
+            Dialogue dialogue = script.get(currentLine);
+            if ("choice".equals(dialogue.type)) {
+                
+                buttonOptions(dialogue.options);
+                return;
+            }
+            
             playSound("Turning_pages.wav");
-
-
             //ask the name if it is line 2.
             if (currentLine == 2 && !nameAsk) {
 
@@ -516,19 +527,19 @@ public class GamePanel extends JPanel {
             }
             
             Dialogue forTheButler = script.get(currentLine);
-            if (forTheButler.name.trim().equalsIgnoreCase("Butler")) {
+            if (forTheButler != null && forTheButler.name != null && forTheButler.name.trim().equalsIgnoreCase("Butler")) {
 
                 playBGM("Myuu-Edge-of-Life(butler).wav");
             }
 
             if (currentLine >= script.size() - 1) {
 
-                System.out.println("End of the script reached.");
+                JOptionPane.showMessageDialog(this, "Saving your progress...");
                 return;
             }
 
 
-            Dialogue dialogue = script.get(currentLine);
+
             String displayName = dialogue.name != null ? dialogue.name.trim() : ""; // Get character name from JSON
             String rawText = dialogue.text != null ? dialogue.text : "";
             boolean isInternal = false;
@@ -565,13 +576,15 @@ public class GamePanel extends JPanel {
                 finalText = rawText;
             }
 
+            updateVisuals();
             typeWriterEffect(finalText, isInternal);
            
 
-            updateVisuals();
+            
 
             backgroundLabel.repaint();
             characterLabel.repaint();
+
 
             this.revalidate();
             this.repaint();
@@ -581,6 +594,54 @@ public class GamePanel extends JPanel {
             nextSlide("Fifteen_Years_Later.json");
         }
     }
+
+    private void buttonOptions(List<Dialogue.Option> options) {
+        if (options == null) return;
+        
+
+        for (int i = 0; i < options.size(); i++) {
+            Dialogue.Option choices = options.get(i);
+            JButton choiceButton = new JButton(choices.text);
+            choiceButton.setBounds(200, 200 + (i * 80), 400, 50);
+            choiceButton.addActionListener(e -> {
+
+                handleChoice(choices.target);
+
+                Container parent = choiceButton.getParent();
+                if (parent != null) {
+
+                    for (Component c : parent.getComponents()) {
+                        if (c instanceof JButton) {
+                            parent.remove(c);
+                        }
+                    }
+                    parent.revalidate();
+                    parent.repaint();
+                }
+            });
+            this.add(choiceButton);
+        }
+        this.setComponentZOrder(dialogBox, 0);
+        this.revalidate();
+        this.repaint();
+}
+
+    private void handleChoice(String targetPath) {
+
+        dialogBox.setText("");
+
+        String finalPath = targetPath.endsWith(".json") ? targetPath : targetPath + ".json";
+        loadScript(finalPath);
+      
+
+        currentLine = 0;
+        Dialogue firstLine = script.get(0);
+        String text = dialogueFormat(firstLine.name, firstLine.text);
+        updateVisuals();
+        typeWriterEffect(text, false);
+    }
+
+
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -611,6 +672,20 @@ public class GamePanel extends JPanel {
 
     private void nextSlide(String nextFile) {
 
+        if (script == null) return;
+
+        if (currentLine >= script.size()) return;
+
+        Dialogue current = script.get(currentLine);
+
+        if ("choice".equals(current.type)) {
+
+            buttonOptions(current.options);
+        } else {
+
+            typeWriterEffect(current.text, false);
+        }
+
         loadScript(nextFile);
         currentLine = 0;
         lastBackground = "";
@@ -618,12 +693,14 @@ public class GamePanel extends JPanel {
 
         if (!script.isEmpty()) {
             
-            updateVisuals();
             Dialogue firstLine = script.get(0);
+            updateVisuals();
             String displayName = firstLine.name != null ? firstLine.name : "";
             String text = dialogueFormat( displayName, firstLine.text);
             typeWriterEffect(text, false);
         }
+
+       this.setComponentZOrder(dialogBox, 0);
        this.repaint();
     }
 

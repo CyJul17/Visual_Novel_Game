@@ -1,0 +1,44 @@
+[
+    {
+        "name" : "",
+        "text" : "You choose the chair nearest the mantle. Norton doesn't look at you; he simply shifts his weight, his presence heavy and suffocating like the air in a deep shaft.",
+        "background" : "abbey_library.jpg",
+        "image" : ""
+    }, 
+    {
+        "name" : "MainChar",
+        "text" : "It’s a long walk from the gates. You’d think a house this size could afford a bit more light in the drawing room.",
+        "background" : "abbey_library.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Light is a luxury. If you’re looking for a warm welcome, you’ve walked into the wrong manor.",
+        "background" : "abbey_library.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I’ve had worse. At least the roof doesn't leak. Have you been here long, Mr. Campbell?",
+        "background" : "abbey_library.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "Norton",
+        "text" : "Long enough to know the furniture is sturdier than the promises made here. You’re better off worrying about your own business than my schedule.",
+        "background" : "abbey_library.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    }, 
+    {
+        "name" : "MainChar",
+        "text" : "Just trying to be polite. It helps pass the time when the host is missing.",
+        "background" : "abbey_library.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "Norton",
+        "text" : "Politeness doesn't pay the bills, sweetheart. And time is the only thing we're actually spending here. Sit still and keep your hands where I can see them. I don't like surprises.",
+        "background" : "abbey_library.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    }
+]

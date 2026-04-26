@@ -274,19 +274,19 @@
     {
         "name" : "",
         "text" : "You stand there for a moment, waiting for the hospitality that clearly isn't coming. ", 
-        "background" : "meet.png",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" :"MainChar",
         "text" : "Quite the welcoming committee. Does the silence come with the room, or do I have to pay extra for a 'hello'?",
-        "background" : "meet.png",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "The man by the fire doesn't move, but the one leaning against the mantle finally slows his coin-tossing.",
-        "background" : "meet.png",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
@@ -348,6 +348,13 @@
         "text" : "Your legs start to feel tired, you look around and find a few places where you could sit down.",
         "background" : "abbey_library1.jpg",
         "image" : ""
+    },
+    {
+        "type" : "choice",
+        "options" : [
+            {"text" : "Sit near Norton", "target" : "norton_scene"},
+            {"text" : "Stand near Richard", "target" : "richard_scene"}
+        ]
     }
 
 
