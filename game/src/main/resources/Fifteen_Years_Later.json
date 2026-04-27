@@ -49,7 +49,13 @@
     },
     {
         "name" : "",
-        "text" : "As you reach your front door, something catches the light. A slip of cream-colored paper is tucked into your weathered mailbox. You bring it inside, kicking off your shoes and dropping your bag with a heavy thud.",
+        "text" : "As you reach your front door, something catches the light. A slip of cream-colored paper is tucked into your weathered mailbox.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You bring it inside, kicking off your shoes and dropping your bag with a heavy thud.",
         "background" : "room.jpg",
         "image" : ""
     },
@@ -61,7 +67,13 @@
     },
     {
         "name" : "letter",
-        "text" : "Dear [Player Name], Time has a cruel way of burying the truth, hasn't it? I know of the 'Knight' you lost all those years ago. If you wish to see him again, to see the man he has become. I invite you to play. Seek out Oletus Manor, and your questions will be answered. — The Baron",
+        "text" : "Dear [Player Name], Time has a cruel way of burying the truth, hasn't it? I know of the 'Knight' you lost all those years ago. If you wish to see him again, to see the man he has become.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "I invite you to play. Seek out Oletus Manor, and your questions will be answered. — The Baron",
         "background" : "room.jpg",
         "image" : ""
     },
@@ -79,7 +91,14 @@
     },
     {
         "name" : "",
-        "text" : "You look around your empty, quiet kitchen. The doubt is there, lingering like a shadow, but the resolve in your chest is colder and harder. It didn't cost you much, just to participate in what ever 'game' the Baron of the manor ought you to play.",
+        "text" : "You look around your empty, quiet kitchen. The doubt is there, lingering like a shadow, but the resolve in your chest is colder and harder.",
+        "background" : "kitchen.jpg",
+        "image" : ""
+
+    }, 
+    {
+        "name" : "",
+        "text" : "It didn't cost you much, just to participate in what ever 'game' the Baron of the manor ought you to play.",
         "background" : "kitchen.jpg",
         "image" : ""
 
@@ -98,19 +117,25 @@
     }, 
     {
         "name" : "MainChar (Internal)",
-        "text" : "' A family crisis. Not a total lie, I suppose, if I still have any family left to find. My employer looked at me as if I were a cracked saucer, but he granted the time. '",
+        "text" : "A family crisis. Not a total lie, I suppose, if I still have any family left to find. My employer looked at me as if I were a cracked saucer, but he granted the time. ",
         "background" : "kitchen.jpg",
         "image" : ""
     }, 
     { 
         "name" : "MainChar (Internal)",
-        "text" : "'Better he thinks I’m mourning a distant cousin than chasing a phantom from a five-year-old’s memory.'",
+        "text" : "Better he thinks I’m mourning a distant cousin than chasing a phantom from a five-year-old’s memory.",
         "background" : "kitchen.jpg",
         "image" : ""
     },
     {
         "name" : "",
-        "text" : "You sent a few vague letters to acquaintances, ensuring no one would file a missing person’s report the moment you stepped off the grid. You packed heavy, prepared for anything from a weekend stay to a long-term siege.",
+        "text" : "You sent a few vague letters to acquaintances, ensuring no one would file a missing person’s report the moment you stepped off the grid.",
+        "background" : "home_inside.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You packed heavy, prepared for anything from a weekend stay to a long-term siege.",
         "background" : "home_inside.jpg",
         "image" : ""
     },
@@ -122,13 +147,13 @@
     },
     {
         "name" : "",
-        "text" : ". When the taxi finally lurched to a halt, the driver didn't even wait for a tip. He dumped your luggage on the gravel and sped away, the roar of his engine swallowed by the oppressive silence of the valley. ",
+        "text" : "When the taxi finally lurched to a halt, the driver didn't even wait for a tip. He dumped your luggage on the gravel and sped away, the roar of his engine swallowed by the oppressive silence of the valley. ",
         "background" : "street2.jpg",
         "image" : ""
     },
     {
         "name" : "MainChar (Internal)",
-        "text" : "'Charming. Nothing says 'welcome' like a terrified local and a mile-long walk in sensible shoes.'",
+        "text" : "Charming. Nothing says 'welcome' like a terrified local and a mile-long walk in sensible shoes.",
         "background" : "street2.jpg",
         "image" : ""
     },
@@ -183,7 +208,7 @@
     },
     {
         "name" : "MainChar (Internal)",
-        "text" : "'Other guests.' So I’m not the only soul the Baron has lured into his web. Perhaps... he might even be here too.'", 
+        "text" : "Other guests.' So I’m not the only soul the Baron has lured into his web. Perhaps... he might even be here too.", 
         "background" : "hallway.jpg",
         "image" : "butler.png"
     },
@@ -201,7 +226,7 @@
     },
     {
         "name" : "MainChar (Internal)",
-        "text" : " 'So, this is the ‘company’ I’m keeping. A gambler and a stage-actor. The Baron certainly has a type.'",
+        "text" : "So, this is the ‘company’ I’m keeping. A gambler and a stage-actor. The Baron certainly has a type.",
         "background" : "big_house.jpg",
         "image" : "" 
     },
@@ -231,7 +256,7 @@
     },
     {
         "name" : "MainChar (Internal)",
-        "text" : " He looks like he’s counting down the seconds until something explodes. Or until he can rob the place blind.",
+        "text" : "He looks like he’s counting down the seconds until something explodes. Or until he can rob the place blind.",
         "background" : "big_house.jpg",
         "image" : ""
     },
@@ -243,7 +268,7 @@
     },
     {
         "name" : "",
-        "text" : " He is the polar opposite—back straight as a pike, clad in an outfit that mimics a knight of old, though the fabric is a bit too theatrical for a real battlefield. ",
+        "text" : "He is the polar opposite—back straight as a pike, clad in an outfit that mimics a knight of old, though the fabric is a bit too theatrical for a real battlefield. ",
         "background" : "big_house.jpg",
         "image" : ""
     }, 
@@ -255,13 +280,13 @@
     }, 
     {
         "name" : "",
-        "text" : " He isn't looking at the fire; he’s staring into the darkness of the room as if expecting a dragon to emerge from the curtains.",
+        "text" : "He isn't looking at the fire; he’s staring into the darkness of the room as if expecting a dragon to emerge from the curtains.",
         "background" : "",
         "image" : ""
     },
     {
         "name" : "MainChar (Internal)",
-        "text" : " And this one... he looks like he hasn’t blinked since the turn of the century. Is he guarding the fire, or is he afraid it'll go out?", 
+        "text" : "And this one... he looks like he hasn’t blinked since the turn of the century. Is he guarding the fire, or is he afraid it'll go out?", 
         "background" : "big_house.jpg",
         "image" : ""
     },
@@ -327,7 +352,7 @@
     },
     {
         "name" : "",
-        "text" : " He speaks the name with a peculiar, stiff pride, as if he’s still getting used to the way it tastes.",
+        "text" : "He speaks the name with a peculiar, stiff pride, as if he’s still getting used to the way it tastes.",
         "background" : "abbey_library1.jpg",
         "image" : "richard_sprites/rich.png"
     },

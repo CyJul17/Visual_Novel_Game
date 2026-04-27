@@ -20,12 +20,13 @@ public class SettingPanel extends JPanel {
         title.setBounds(0, 20, 600, 50);
         this.add(title);
 
-        // Label
+        // Label for the spped
         JLabel speedLabel = new JLabel("Text Speed", SwingConstants.CENTER);
         speedLabel.setForeground(Color.WHITE);
         speedLabel.setBounds(0, 90, 600, 30);
         this.add(speedLabel);
 
+        // label to know what the delay was
         JLabel speedValue = new JLabel("Current Delay: 30");
         speedValue.setForeground(Color.WHITE);
         speedValue.setBounds(200, 170, 300, 30);
@@ -43,9 +44,10 @@ public class SettingPanel extends JPanel {
         this.add(speedSlider);
 
         // Close Button 
-        JButton exitButton = new JButton("Return to Main Menu");
+        JButton exitButton = new JButton("Return to Menu");
         exitButton.setBounds(225, 350, 150, 40);
         exitButton.addActionListener(e -> {
+
             this.setVisible(false);
             game.requestFocusInWindow();
         });

@@ -52,7 +52,7 @@ public class SceneManager extends JFrame {
             game.requestFocusInWindow();
             game.launchGame();
         });
-        menu.setSettings(settings);
+       menu.setSettings(settings);
 
         //screen
         

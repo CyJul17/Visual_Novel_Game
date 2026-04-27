@@ -14,6 +14,7 @@ public class MainMenu extends JPanel {
     private ActionListener startAction;
     private SettingPanel settings;
 
+
     public void setSettings(SettingPanel settings) {
 
         this.settings = settings;
@@ -116,21 +117,30 @@ public class MainMenu extends JPanel {
     private void buttonClicked(JButton button) {
         String getButtonText = button.getText();
 
-        if ("Start".equals(getButtonText)) {
+            switch (getButtonText) {
 
-            startAction.actionPerformed(null);
-        } else if ("Quit Game".equals(getButtonText)) {
+                case "Start": 
+                    startAction.actionPerformed(null);
+                    break;
 
-            System.exit(0);
-        } else if ("Setting".equals(getButtonText)) {
+                case "Load Game": 
+                
+                    JOptionPane.showMessageDialog(this, "Load game will be coming soon!");
+                    break;
 
-           settings.setVisible(true);
-           this.setComponentZOrder(settings, 0);
-           this.repaint();
-        } else if ("Load Game".equals(getButtonText)) {
-            JOptionPane.showMessageDialog(this, "Load game will be coming soon!");
-        }
+                case "Setting":
 
+                    settings.setVisible(true);
+                    this.setComponentZOrder(settings, 0);
+                    this.repaint();
+                    break;
+                case "Quit Game": 
+
+                    System.exit(0);
+                    break;
+                default: 
+                System.out.println("There is no option left");
+            }
     }
 
     @Override
