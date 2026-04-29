@@ -107,4 +107,10 @@ public class VisualManager {
         });
         time.start();
     }
+
+    public void resetTracker() {
+
+       lastCharacter = "";
+       lastBackground = "";
+    }
 }

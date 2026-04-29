@@ -15,7 +15,7 @@ public class Dialogue {
     public Dialogue() {}
 
     //Contructor for dialogue w/o choices.
-    public Dialogue(String name, String text, String background, String image, String type, JSONArray options) {
+    public Dialogue(String name, String text, String background, String image, String type) {
         
         this.name = name;
         this.text = text;
