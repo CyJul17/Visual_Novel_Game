@@ -47,13 +47,14 @@ public class GamePanel extends JPanel {
     private JLabel backgroundLabel;
     private JTextArea dialogBox;
     private List<Dialogue> script;
-    private  int currentLine = 0;
+    private int currentLine = 0;
     private SettingPanel settings;
     private VisualManager visualMan;
     private TypingManager typingMan;
     private SaveManager saveManager = new SaveManager();
     private MusicManager musicMan = new MusicManager();
     private String currentScriptLine = "intro.json";
+
     // ######################################## Constructor ###################################################
 
     public GamePanel() {
@@ -83,12 +84,12 @@ public class GamePanel extends JPanel {
         backgroundLabel.setSize(800, 600);
         backgroundLabel.setBounds(0, 0, 800, 600);
 
-        //Instantation 
+        //Initialize the objects 
          visualMan = new VisualManager(this, characterLabel, backgroundLabel);
          typingMan = new TypingManager(dialogBox, this);
          this.add(dialogBox);
          
-         //adding seetings
+         //adding settings
          settings = new SettingPanel(this);
          this.add(settings);
          this.setComponentZOrder(settings, 0);
@@ -135,7 +136,6 @@ public class GamePanel extends JPanel {
     // ######################################### Methods ###################################################
 
     // The public 
-
     public void startNewGame() {
 
         this.playerName = "Player";
@@ -168,7 +168,7 @@ public class GamePanel extends JPanel {
             saveManager.save(currentScriptLine, playerName, currentLine);
 
             updateContent();
-             musicMan.playSound("Turning_pages.wav");
+            musicMan.playSound("Turning_pages.wav");
 
         } else {
 
@@ -210,7 +210,17 @@ public class GamePanel extends JPanel {
             loadScript("intro.json");
         }
     }
-  
+    
+    public void toggleSettings() {
+
+        settings.setVisible(!settings.isVisible());
+
+        if (settings.isVisible()) {
+
+            this.setComponentZOrder(settings, 0);
+        }
+        this.repaint();
+    }
     // The private ( ͡° ͜ʖ ͡°)
 
     private String mainCharacterName(String name) {
@@ -243,16 +253,6 @@ public class GamePanel extends JPanel {
         return displayName + processedText;   
     }
 
-    public void toggleSettings() {
-
-        settings.setVisible(!settings.isVisible());
-
-        if (settings.isVisible()) {
-
-            this.setComponentZOrder(settings, 0);
-        }
-        this.repaint();
-    }
 
     private void askForName() {
 
@@ -319,7 +319,6 @@ public class GamePanel extends JPanel {
         }
 
         this.currentScriptLine = fileName;
-       // saveManager.save(currentScriptLine, playerName, currentLine);
     }
 
     private void buttonOptions(List<Dialogue.Option> options) {
@@ -399,17 +398,17 @@ public class GamePanel extends JPanel {
 
     private void nextSlide(String nextFile) {
 
-     if (script == null) return;
+    if (script == null) return;
 
-     this.currentLine = 0;
+        this.currentLine = 0;
      
-     loadScript(nextFile);
-     this.currentScriptLine = nextFile;
-     visualMan.resetTracker();
-     if (script != null && !script.isEmpty()) {
+        loadScript(nextFile);
+        this.currentScriptLine = nextFile;
+        visualMan.resetTracker();
+        if (script != null && !script.isEmpty()) {
 
-         updateContent();
-     }
+            updateContent();
+        }
     }
 
 } // this is the end of the class (If ever you delete this you gonna mess up the code ToT).
