@@ -1,4 +1,4 @@
-package com.hiraeth;
+package com.hiraeth.Managers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hiraeth.Data_Model.SaveData;

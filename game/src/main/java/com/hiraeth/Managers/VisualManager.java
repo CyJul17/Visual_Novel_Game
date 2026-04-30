@@ -1,6 +1,5 @@
-package com.hiraeth;
+package com.hiraeth.Managers;
 import java.net.URL;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.*;

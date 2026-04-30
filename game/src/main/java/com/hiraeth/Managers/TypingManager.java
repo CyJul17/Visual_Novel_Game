@@ -1,7 +1,6 @@
-package com.hiraeth;
+package com.hiraeth.Managers;
 import javax.swing.*;
-import java.util.List;
-import com.hiraeth.Data_Model.Dialogue;
+import com.hiraeth.Panels.GamePanel;
 
 public class TypingManager {
 

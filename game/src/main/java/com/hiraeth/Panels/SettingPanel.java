@@ -1,4 +1,4 @@
-package com.hiraeth;
+package com.hiraeth.Panels;
 import java.awt.*;
 import javax.swing.*;
 

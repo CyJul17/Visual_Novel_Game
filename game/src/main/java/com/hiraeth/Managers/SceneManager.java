@@ -1,5 +1,10 @@
-package com.hiraeth;
+package com.hiraeth.Managers;
 import javax.swing.*;
+
+import com.hiraeth.MainMenu;
+import com.hiraeth.Panels.GamePanel;
+import com.hiraeth.Panels.SettingPanel;
+
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;

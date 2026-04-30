@@ -1,5 +1,8 @@
 package com.hiraeth;
 import javax.swing.*;
+
+import com.hiraeth.Panels.SettingPanel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

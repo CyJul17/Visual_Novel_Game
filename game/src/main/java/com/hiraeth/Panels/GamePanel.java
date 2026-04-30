@@ -1,4 +1,4 @@
-package com.hiraeth;
+package com.hiraeth.Panels;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,9 +10,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.io.InputStream;
-import java.io.BufferedInputStream;
 import java.util.List;
-import javax.sound.sampled.*;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,6 +24,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hiraeth.Data_Model.Dialogue;
 import com.hiraeth.Data_Model.SaveData;
+import com.hiraeth.Managers.MusicManager;
+import com.hiraeth.Managers.SaveManager;
+import com.hiraeth.Managers.TypingManager;
+import com.hiraeth.Managers.VisualManager;
 
 
 /*
@@ -46,11 +48,11 @@ public class GamePanel extends JPanel {
     private JTextArea dialogBox;
     private List<Dialogue> script;
     private  int currentLine = 0;
-    private Clip bgm; // The banger :3
     private SettingPanel settings;
     private VisualManager visualMan;
     private TypingManager typingMan;
     private SaveManager saveManager = new SaveManager();
+    private MusicManager musicMan = new MusicManager();
     private String currentScriptLine = "intro.json";
     // ######################################## Constructor ###################################################
 
@@ -60,8 +62,6 @@ public class GamePanel extends JPanel {
         this.setBackground(Color.BLACK);
         this.setOpaque(true);
         
-        
-       
         
         //dialog box
         dialogBox = new JTextArea();
@@ -84,7 +84,7 @@ public class GamePanel extends JPanel {
         backgroundLabel.setBounds(0, 0, 800, 600);
 
         //Instantation 
-        visualMan = new VisualManager(this, characterLabel, backgroundLabel);
+         visualMan = new VisualManager(this, characterLabel, backgroundLabel);
          typingMan = new TypingManager(dialogBox, this);
          this.add(dialogBox);
          
@@ -99,6 +99,7 @@ public class GamePanel extends JPanel {
 
             Dialogue firstLine = script.get(0); 
             String text = dialogueFormat(firstLine.name, firstLine.text);
+            
             typingMan.typeText(text);
         }
 
@@ -108,7 +109,7 @@ public class GamePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
 
-                typingMan.continueType();;
+                typingMan.continueType();
             }
         });
         // Keyboard adpater 
@@ -153,7 +154,7 @@ public class GamePanel extends JPanel {
             this.currentLine = data.currentLine;
             loadScript(data.currentScript);
             updateContent();
-            updateMusic(data.currentScript);
+            musicMan.updateMusic(data.currentScript);
         } else {
 
             JOptionPane.showMessageDialog(this, "No save data found. :(");
@@ -167,7 +168,7 @@ public class GamePanel extends JPanel {
             saveManager.save(currentScriptLine, playerName, currentLine);
 
             updateContent();
-             playSound("Turning_pages.wav");
+             musicMan.playSound("Turning_pages.wav");
 
         } else {
 
@@ -182,7 +183,7 @@ public class GamePanel extends JPanel {
         
     public void launchGame() {
 
-        playBGM("Far Away(intro).wav");
+        musicMan.playBGM("Far Away(intro).wav");
 
         if(currentLine == 0 && script != null && !script.isEmpty()) {
 
@@ -209,64 +210,7 @@ public class GamePanel extends JPanel {
             loadScript("intro.json");
         }
     }
-    public void playBGM(String soundFile) {
-
-        if (bgm != null && bgm.isRunning()) {
-
-            bgm.stop();
-            bgm.close();
-        }
-
-        try {
-
-            InputStream is = getClass().getResourceAsStream("/BGM/" +  soundFile);
-            if (is == null) return;
-
-            AudioInputStream sourceStream = AudioSystem.getAudioInputStream(new BufferedInputStream(is));
-            AudioFormat baseFormat = sourceStream.getFormat();
-            AudioFormat targetFormat = new AudioFormat(
-                AudioFormat.Encoding.PCM_SIGNED,
-                baseFormat.getSampleRate(), 16,
-                baseFormat.getChannels(),
-                baseFormat.getChannels() * 2,
-                baseFormat.getSampleRate(), false
-            );
-
-            AudioInputStream decodedStream = AudioSystem.getAudioInputStream(targetFormat, sourceStream);
-
-            bgm = AudioSystem.getClip();
-            bgm.open(decodedStream);
-            FloatControl gainControl = (FloatControl) bgm.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-10.0f);
-
-
-            bgm.loop(Clip.LOOP_CONTINUOUSLY);
-            bgm.start();
-        } catch (Exception e ) {
-
-            System.out.println("Error cannot acces the mp3..." + e.getMessage());
-        }
-    }
-
-    public void updateMusic(String fileName) {
-
-        switch (fileName) {
-
-            case "intro.json":
-
-                playBGM("Far Away(intro).wav");
-                break;
-            case "Fifteen_Years_Later.json":
-
-                playBGM("Relax(kitchen).wav");
-                break;
-            default:
-
-                System.out.println("There is no music for: " + fileName);
-                break;
-        }
-    }
-
+  
     // The private ( ͡° ͜ʖ ͡°)
 
     private String mainCharacterName(String name) {
@@ -334,7 +278,7 @@ public class GamePanel extends JPanel {
 
         if (currentLine == 28 && current.name.equals("Butler")) {
 
-            playBGM("Myuu-Edge-of-Life(butler).wav");
+            musicMan.playBGM("Myuu-Edge-of-Life(butler).wav");
         }
 
         String formattedText = dialogueFormat(current.name, current.text);
@@ -362,7 +306,7 @@ public class GamePanel extends JPanel {
             }
             script = mapper.readValue(is, new TypeReference<List<Dialogue>>() {});
 
-           updateMusic(fileName);
+           musicMan.updateMusic(fileName);
 
             //Debugging output
             System.out.println("Script loaded successfully! Total Lines:" + fileName + " -> " + script.size());
@@ -377,42 +321,6 @@ public class GamePanel extends JPanel {
         this.currentScriptLine = fileName;
        // saveManager.save(currentScriptLine, playerName, currentLine);
     }
-
-   
-    private void playSound(String soundFile) {
-
-        try {
-
-            InputStream is = getClass().getResourceAsStream("/Sound_Effects/" + soundFile);
-            if(is == null) {
-
-                System.out.println("The file is Null");
-            }
-
-            InputStream bufferedIn = new BufferedInputStream(is);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
-
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-
-            FloatControl gaiControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            gaiControl.setValue(-5.0f);
-            clip.start();
-
-            clip.addLineListener(e -> {
-
-                if (e.getType() == LineEvent.Type.STOP) {
-                    clip.close();
-                }
-            });
-
-        } catch (Exception e) {
-
-            System.out.println("Cannot access the sound file...");
-            e.printStackTrace();
-        }
-    }
-   
 
     private void buttonOptions(List<Dialogue.Option> options) {
         if (options == null) return;
@@ -492,6 +400,8 @@ public class GamePanel extends JPanel {
     private void nextSlide(String nextFile) {
 
      if (script == null) return;
+
+     this.currentLine = 0;
      
      loadScript(nextFile);
      this.currentScriptLine = nextFile;
