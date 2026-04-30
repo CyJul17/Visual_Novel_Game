@@ -48,9 +48,15 @@ public class SceneManager extends JFrame {
         SettingPanel settings = new SettingPanel(game);
         MainMenu menu = new MainMenu(e -> {
 
+            String command = e.getActionCommand();
             cardLayout.show(panel, "GAME");
-            game.requestFocusInWindow();
-            game.launchGame();
+            if ("LOAD_GAME".equals(command)) {
+
+                game.continueGame();
+            } else {
+
+                game.startNewGame();
+            }
         });
        menu.setSettings(settings);
 

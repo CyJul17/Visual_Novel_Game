@@ -28,7 +28,7 @@
     },
     {
         "name" : "Boss",
-        "text" : "Good work today, (Player Name). Don’t let the door hit you on the way out.",
+        "text" : "Good work today, [Player Name]. Don’t let the door hit you on the way out.",
         "background" : "kitchen.jpg",
         "image" : ""
 

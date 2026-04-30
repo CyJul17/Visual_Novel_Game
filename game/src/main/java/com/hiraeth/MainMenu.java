@@ -1,9 +1,11 @@
 package com.hiraeth;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.File;
 
 public class MainMenu extends JPanel {
 
@@ -79,7 +81,7 @@ public class MainMenu extends JPanel {
         
 
         // buttons 
-        String[] buttonLabel = {"Start", "Load Game", "Setting", "Quit Game"};
+        String[] buttonLabel = {"New Game", "Load Game", "Setting", "Quit Game"};
         buttons = new JButton[4];
 
         //button alignment
@@ -119,13 +121,29 @@ public class MainMenu extends JPanel {
 
             switch (getButtonText) {
 
-                case "Start": 
-                    startAction.actionPerformed(null);
+                case "New Game": 
+                File saveFile = new File("Save_Files/Save.json");
+                if(saveFile.exists()) {
+                    int confirm = JOptionPane.showConfirmDialog(this, 
+                        "Starting a New Game, would you like to continue and forgot the save file?",
+                        "Warning",
+                        JOptionPane.YES_NO_OPTION
+                    );
+
+                    if(confirm != 0) return;
+                }
+                    startAction.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "NEW_GAME"));
                     break;
 
                 case "Load Game": 
-                
-                    JOptionPane.showMessageDialog(this, "Load game will be coming soon!");
+                    File file = new File("Save_Files/Save.json");
+                    if (file.exists()) {
+
+                        startAction.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "LOAD_GAME"));
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "No saved file. :( ");
+                    }
                     break;
 
                 case "Setting":

@@ -12,8 +12,13 @@
         "image" : ""
     },
     {
+        "type" : "input",
+        "text" : "Name has been saved! Click to continue.",
+        "background" : "big_house.jpg"
+    },
+    {
         "name" : "",
-        "text" : "You were named by the director of the orphanage like everyone else, a temporary name until you got adopted. You are (input name). ",
+        "text" : "You were named by the director of the orphanage like everyone else, a temporary name until you got adopted. You are [Player Name]. ",
         "background" : "big_house.jpg",
         "image" : ""
     },

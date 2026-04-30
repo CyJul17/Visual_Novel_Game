@@ -2,11 +2,9 @@ package com.hiraeth;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Component;
@@ -15,21 +13,19 @@ import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.util.List;
 import javax.sound.sampled.*;
-import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
-import javax.swing.Timer;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hiraeth.Data_Model.Dialogue;
+import com.hiraeth.Data_Model.SaveData;
 
 
 /*
@@ -47,29 +43,26 @@ public class GamePanel extends JPanel {
     private boolean nameAsk = false;
     private JLabel characterLabel;
     private JLabel backgroundLabel;
-    private Timer typewriter;
-    private int charIndex = 0;
-    private String fullText;
     private JTextArea dialogBox;
     private List<Dialogue> script;
     private  int currentLine = 0;
     private Clip bgm; // The banger :3
     private SettingPanel settings;
-    private int textSpeed = 30;
-    private VisualManager visMan;
-
+    private VisualManager visualMan;
+    private TypingManager typingMan;
+    private SaveManager saveManager = new SaveManager();
+    private String currentScriptLine = "intro.json";
     // ######################################## Constructor ###################################################
 
     public GamePanel() {
 
-        loadScript("intro.json");
         this.setLayout(null);
         this.setBackground(Color.BLACK);
         this.setOpaque(true);
-
-        //Instantation 
-        visMan = new VisualManager(this, characterLabel, backgroundLabel);
-
+        
+        
+       
+        
         //dialog box
         dialogBox = new JTextArea();
         dialogBox.setBounds(50, 450, 700, 100);
@@ -79,33 +72,34 @@ public class GamePanel extends JPanel {
         dialogBox.setBackground(new java.awt.Color(255, 255, 255, 200));
         dialogBox.setLineWrap(true);
         dialogBox.setWrapStyleWord(true);
-
+        
         //character sprite
         characterLabel = new JLabel();
         characterLabel.setOpaque(false);
         characterLabel.setBounds(175, 50, 450, 550);
-
+        
         //background
         backgroundLabel = new JLabel();
         backgroundLabel.setSize(800, 600);
         backgroundLabel.setBounds(0, 0, 800, 600);
 
-        this.add(dialogBox);
-
-        //adding seetings
-        settings = new SettingPanel(this);
-        this.add(settings);
-        this.setComponentZOrder(settings, 0);
-
-
-        updateVisuals();
+        //Instantation 
+        visualMan = new VisualManager(this, characterLabel, backgroundLabel);
+         typingMan = new TypingManager(dialogBox, this);
+         this.add(dialogBox);
+         
+         //adding seetings
+         settings = new SettingPanel(this);
+         this.add(settings);
+         this.setComponentZOrder(settings, 0);
+         
 
         
         if (script != null && !script.isEmpty()) {
 
             Dialogue firstLine = script.get(0); 
             String text = dialogueFormat(firstLine.name, firstLine.text);
-            typeWriterEffect(text, false);
+            typingMan.typeText(text);
         }
 
         //Mouse Eventlistener
@@ -114,7 +108,7 @@ public class GamePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
 
-                continueClick();
+                typingMan.continueType();;
             }
         });
         // Keyboard adpater 
@@ -124,7 +118,7 @@ public class GamePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                continueClick();
+                typingMan.continueType();
             }
         });
         
@@ -140,9 +134,51 @@ public class GamePanel extends JPanel {
     // ######################################### Methods ###################################################
 
     // The public 
-        public void setTextSpeed(int speed) {
-            this.textSpeed = speed;
+
+    public void startNewGame() {
+
+        this.playerName = "Player";
+        this.currentLine = 0;
+        this.nameAsk = false;
+        loadScript("intro.json");
+        updateContent();
+    }
+
+    public void continueGame() {
+
+        SaveData data = saveManager.load();
+        if (data != null) {
+
+            this.playerName = data.playerName;
+            this.currentLine = data.currentLine;
+            loadScript(data.currentScript);
+            updateContent();
+            updateMusic(data.currentScript);
+        } else {
+
+            JOptionPane.showMessageDialog(this, "No save data found. :(");
+            startNewGame();
         }
+    }
+    public void advanceDialogue() {
+
+        currentLine++;
+        if (currentLine < script.size()) {
+            saveManager.save(currentScriptLine, playerName, currentLine);
+
+            updateContent();
+             playSound("Turning_pages.wav");
+
+        } else {
+
+            nextSlide("Fifteen_Years_Later.json");
+        }
+    }
+
+    public void setTextSpeed(int speed) {
+
+        typingMan.setTextSpeed(speed);
+    }
         
     public void launchGame() {
 
@@ -152,11 +188,27 @@ public class GamePanel extends JPanel {
 
             Dialogue firstLine = script.get(0);
             String initialText = dialogueFormat(firstLine.name, firstLine.text);
-            typeWriterEffect(initialText, false);
-            updateVisuals();
+            typingMan.typeText(initialText);
+            updateContent();
         }
     }
 
+    public void resumeGame() {
+
+        SaveData data = saveManager.load();
+
+        if (data != null) {
+
+            this.playerName = data.playerName;
+            this.currentLine = data.currentLine;
+            loadScript(data.currentScript);
+            JOptionPane.showMessageDialog(this, "Resume for save: " + data.currentScript + " at line " + currentLine);
+        } else {
+            
+            JOptionPane.showMessageDialog(this, "No save file found.");
+            loadScript("intro.json");
+        }
+    }
     public void playBGM(String soundFile) {
 
         if (bgm != null && bgm.isRunning()) {
@@ -216,13 +268,35 @@ public class GamePanel extends JPanel {
     }
 
     // The private ( ͡° ͜ʖ ͡°)
+
+    private String mainCharacterName(String name) {
+
+        if(name == null || name.trim().isEmpty()) return "";
+
+        String processedName = "";
+        switch (name) {
+            case "MainChar":
+                processedName = playerName + ": ";
+                break;
+            case "MainChar (Internal)":
+                processedName = playerName + " (Internal): ";
+                break;
+            default:
+                processedName = name.replace("[Player]", playerName) + ": ";
+                break;
+        }
+        return processedName;
+
+    }
     private String dialogueFormat(String name, String text) {
         
-        if (name == null || name.trim().isEmpty()) {
+        String displayName = mainCharacterName(name);
+        String processedText = (text != null) ? text : "";
+        if (text != null && text.contains("[Player Name]")) {
 
-            return text;
+            processedText = text.replace("[Player Name]", playerName);
         }
-        return name + ": " + text;
+        return displayName + processedText;   
     }
 
     public void toggleSettings() {
@@ -245,13 +319,32 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void updateVisuals() {
+    private void updateContent() {
 
-        if (script != null && currentLine < script.size()) {
-            
-            Dialogue current = script.get(currentLine);
-            visMan.update(current);
+        if (script == null || currentLine >= script.size()) return;
+        Dialogue current = script.get(currentLine);
+
+        if ("input".equals(current.type) && !nameAsk) {
+
+            askForName();
+            nameAsk = true;
         }
+           
+            visualMan.update(current);
+
+        if (currentLine == 28 && current.name.equals("Butler")) {
+
+            playBGM("Myuu-Edge-of-Life(butler).wav");
+        }
+
+        String formattedText = dialogueFormat(current.name, current.text);
+        typingMan.typeText(formattedText);
+
+        if ("choice".equals(current.type) && current.options != null) {
+
+            buttonOptions(current.options);
+        }
+        
     }   
     
 
@@ -280,35 +373,12 @@ public class GamePanel extends JPanel {
             e.printStackTrace();
             this.script = new java.util.ArrayList<>(); // Becomes empty script to prevent null pointer.
         }
+
+        this.currentScriptLine = fileName;
+       // saveManager.save(currentScriptLine, playerName, currentLine);
     }
 
-    private void typeWriterEffect(String text, boolean isItalic) {
-
-        if (typewriter != null && typewriter.isRunning()) {
-
-            typewriter.stop();
-        }
-
-        int style = isItalic ? Font.ITALIC : Font.PLAIN;
-        dialogBox.setFont(new Font("Arial", style, 23));
-
-        charIndex = 0;
-        fullText = text;
-        dialogBox.setText(""); // Clear the dialog box
-        typewriter = new Timer(this.textSpeed, e -> {
-
-            if (charIndex < fullText.length()) {
-
-                dialogBox.append(String.valueOf(fullText.charAt(charIndex))); 
-                charIndex++;
-                } else {
-
-                    typewriter.stop();
-                }
-        });
-        typewriter.setInitialDelay(400);
-        typewriter.start();
-    }
+   
     private void playSound(String soundFile) {
 
         try {
@@ -324,7 +394,17 @@ public class GamePanel extends JPanel {
 
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
+
+            FloatControl gaiControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gaiControl.setValue(-5.0f);
             clip.start();
+
+            clip.addLineListener(e -> {
+
+                if (e.getType() == LineEvent.Type.STOP) {
+                    clip.close();
+                }
+            });
 
         } catch (Exception e) {
 
@@ -332,110 +412,7 @@ public class GamePanel extends JPanel {
             e.printStackTrace();
         }
     }
-    private void continueClick() { 
-
-        if (script == null || script.isEmpty()) return;
-        
-        if (typewriter != null && typewriter.isRunning()) {
-
-            typewriter.stop();
-            dialogBox.setText(fullText);
-            return;
-        }
-       
-        if (script.isEmpty()) {
-
-            System.out.println("Script not loaded or empty.");
-            return;
-        }
-
-        if (currentLine < script.size() - 1) {
-
-            currentLine++;
-            
-            Dialogue dialogue = script.get(currentLine);
-            if ("choice".equals(dialogue.type)) {
-                
-                buttonOptions(dialogue.options);
-                return;
-            }
-            
-            playSound("Turning_pages.wav");
-            //ask the name if it is line 2.
-            if (currentLine == 2 && !nameAsk) {
-
-                askForName();
-                nameAsk = true;
-            }
-            
-            Dialogue forTheButler = script.get(currentLine);
-            if (forTheButler != null && forTheButler.name != null && forTheButler.name.trim().equalsIgnoreCase("Butler")) {
-
-                playBGM("Myuu-Edge-of-Life(butler).wav");
-            }
-
-            if (currentLine >= script.size() - 1) {
-
-                JOptionPane.showMessageDialog(this, "Saving your progress...");
-                return;
-            }
-
-
-
-            String displayName = dialogue.name != null ? dialogue.name.trim() : ""; // Get character name from JSON
-            String rawText = dialogue.text != null ? dialogue.text : "";
-            boolean isInternal = false;
-            
-            // swap the name of the main character to the input
-            if ("MainChar (Internal)".equalsIgnoreCase(displayName)) {
-
-                isInternal = true;
-                displayName = playerName + " (Internal)";
-            } else if ("MainChar".equalsIgnoreCase(displayName)) {
-
-                displayName = playerName;
-            }
-
-            // change the (input name in the JSON file)
-            if (rawText.contains("(input name)")) {
-
-                rawText = rawText.replace("(input name)", playerName);
-            } else if (rawText.contains("(Player Name)")) {
-                
-                rawText = rawText.replace("(Player Name)", playerName);
-            } else if ((rawText.contains("[Player Name]"))) { 
-
-                rawText = rawText.replace("[Player Name]", playerName);
-            }
-
-            // display it in the dialog box
-            String finalText;
-            if (displayName != null && !displayName.trim().isEmpty()) {
-
-                finalText = dialogueFormat(displayName, rawText);
-            } else {
-
-                finalText = rawText;
-            }
-
-            updateVisuals();
-            typeWriterEffect(finalText, isInternal);
-           
-
-            
-
-            backgroundLabel.repaint();
-            characterLabel.repaint();
-
-
-            this.revalidate();
-            this.repaint();
-        } else {
-
-            System.out.println("Switching file...");
-            nextSlide("Fifteen_Years_Later.json");
-        }
-    }
+   
 
     private void buttonOptions(List<Dialogue.Option> options) {
         if (options == null) return;
@@ -479,8 +456,8 @@ public class GamePanel extends JPanel {
         currentLine = 0;
         Dialogue firstLine = script.get(0);
         String text = dialogueFormat(firstLine.name, firstLine.text);
-        updateVisuals();
-        typeWriterEffect(text, false);
+        typingMan.typeText(text);
+        updateContent();
     }
 
 
@@ -495,17 +472,17 @@ public class GamePanel extends JPanel {
         g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 
         //Draw background opacity.
-         if (visMan.currentBgImage != null) {
+         if (visualMan.currentBgImage != null) {
 
-            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, visMan.bgOpacity));
-            g2d.drawImage(visMan.currentBgImage, 0, 0, getWidth(), getHeight(), null);
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, visualMan.bgOpacity));
+            g2d.drawImage(visualMan.currentBgImage, 0, 0, getWidth(), getHeight(), null);
         }
         
         // Draw Character opacity.
-        if (visMan.currentCharImage != null) {
+        if (visualMan.currentCharImage != null) {
             
-            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, visMan.charOpacity));
-            g2d.drawImage(visMan.currentCharImage, 175, 50, 450, 550, null);
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, visualMan.charOpacity));
+            g2d.drawImage(visualMan.currentCharImage, 175, 50, 450, 550, null);
         }
 
         g2d.dispose(); // clean the graphics context to prevent memo leaks.
@@ -514,35 +491,15 @@ public class GamePanel extends JPanel {
 
     private void nextSlide(String nextFile) {
 
-        if (script == null) return;
+     if (script == null) return;
+     
+     loadScript(nextFile);
+     this.currentScriptLine = nextFile;
+     visualMan.resetTracker();
+     if (script != null && !script.isEmpty()) {
 
-        if (currentLine >= script.size()) return;
-
-        Dialogue current = script.get(currentLine);
-
-        if ("choice".equals(current.type)) {
-
-            buttonOptions(current.options);
-        } else {
-
-            typeWriterEffect(current.text, false);
-        }
-
-        loadScript(nextFile);
-        currentLine = 0;
-        visMan.resetTracker();
-
-        if (!script.isEmpty()) {
-            
-            Dialogue firstLine = script.get(0);
-            updateVisuals();
-            String displayName = firstLine.name != null ? firstLine.name : "";
-            String text = dialogueFormat( displayName, firstLine.text);
-            typeWriterEffect(text, false);
-        }
-
-       this.setComponentZOrder(dialogBox, 0);
-       this.repaint();
+         updateContent();
+     }
     }
 
 } // this is the end of the class (If ever you delete this you gonna mess up the code ToT).
