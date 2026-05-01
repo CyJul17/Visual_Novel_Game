@@ -6,6 +6,8 @@ import com.hiraeth.Panels.GamePanel;
 import com.hiraeth.Panels.SettingPanel;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
@@ -20,10 +22,14 @@ import java.awt.event.ComponentEvent;
 */
 
 
-public class SceneManager extends JFrame {
+public class SceneManager extends JFrame implements ActionListener {
     
+    private MusicManager musicMan = new MusicManager();
     private CardLayout cardLayout = new CardLayout();
     private JPanel panel = new JPanel(cardLayout);
+    private String currentView = "MENU";
+    private GamePanel game;
+    private MainMenu menu;
 
     //Constructor 
     public SceneManager() {
@@ -45,25 +51,14 @@ public class SceneManager extends JFrame {
                 panel.setBounds(0,0, w, h);
             }
         });
+
+
             
-        
-
         //initializing the panels
-        GamePanel game = new GamePanel();
+        game = new GamePanel(this);
         SettingPanel settings = new SettingPanel(game);
-        MainMenu menu = new MainMenu(e -> {
-
-            String command = e.getActionCommand();
-            cardLayout.show(panel, "GAME");
-            if ("LOAD_GAME".equals(command)) {
-
-                game.continueGame();
-            } else {
-
-                game.startNewGame();
-            }
-        });
-       menu.setSettings(settings);
+        menu = new MainMenu(this);
+        menu.setSettings(settings);
 
         //screen
         
@@ -71,11 +66,52 @@ public class SceneManager extends JFrame {
        panel.add(createCenteredWrapper(game), "GAME");
 
        this.add(panel);
-
+        showMain();
         cardLayout.show(panel, "MENU");
         this.setVisible(true);
 
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+
+      switch (command) {
+        case "ESC_PRESSED":
+
+            escape();
+            break;
+        case "NEW_GAME":
+
+            showGame();
+            game.startNewGame();
+            break;
+        case "LOAD_GAME":
+
+            showGame();
+            game.continueGame();
+            break;
+      
+        default: //Useless line ToT
+            System.out.println("None of the choice are performed.");
+            break;
+      }
+
+    }
+
+    private void showMain() {
+
+        currentView = "MENU";
+        cardLayout.show(panel, "MENU");
+        musicMan.playBGM("Far Away(intro).wav");
+    }
+
+    private void showGame() {
+
+        currentView = "GAME";
+        cardLayout.show(panel, "GAME");
+        musicMan.stopBGM();
     }
 
     private JPanel createCenteredWrapper(JPanel content) {
@@ -83,7 +119,6 @@ public class SceneManager extends JFrame {
         JPanel wrapper = new JPanel(new GridBagLayout());
 
             wrapper.setBackground(Color.BLACK);
-            // wrapper.add(content, BorderLayout.CENTER);
 
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
@@ -94,5 +129,36 @@ public class SceneManager extends JFrame {
             wrapper.add(content, gbc);
 
             return wrapper;
+    }
+
+   
+    private void escape() {
+        if ("GAME".equals(currentView)) {
+
+             int confirm = JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to return to the Main Menu?",
+                    "Return to Menu",
+                    JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == 0) {
+
+                    game.stopMusic();
+                    showMain();
+                }
+
+        } else if ("MENU". equals(currentView)) {
+
+              int confirm = JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to return to exit the game?",
+                    "Exit Game",
+                    JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == 0) {
+
+                    System.exit(0);
+                }
+        }
     }
 }

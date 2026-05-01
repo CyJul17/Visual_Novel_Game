@@ -3,6 +3,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.AlphaComposite;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
-
+//Use for Maven compiler and getting the classes 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hiraeth.Data_Model.Dialogue;
@@ -51,13 +52,13 @@ public class GamePanel extends JPanel {
     private SettingPanel settings;
     private VisualManager visualMan;
     private TypingManager typingMan;
-    private SaveManager saveManager = new SaveManager();
+    private SaveManager saveMan = new SaveManager();
     private MusicManager musicMan = new MusicManager();
     private String currentScriptLine = "intro.json";
 
     // ######################################## Constructor ###################################################
 
-    public GamePanel() {
+    public GamePanel(ActionListener startAction) {
 
         this.setLayout(null);
         this.setBackground(Color.BLACK);
@@ -94,7 +95,6 @@ public class GamePanel extends JPanel {
          this.add(settings);
          this.setComponentZOrder(settings, 0);
          
-
         
         if (script != null && !script.isEmpty()) {
 
@@ -113,6 +113,7 @@ public class GamePanel extends JPanel {
                 typingMan.continueType();
             }
         });
+
         // Keyboard adpater 
         this.getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "continue");
         this.getActionMap().put("continue", new AbstractAction() {
@@ -123,7 +124,18 @@ public class GamePanel extends JPanel {
                 typingMan.continueType();
             }
         });
-        
+        this.setFocusable(true);
+        this.requestFocusInWindow();
+        this.getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ESCAPE"), "esc");
+        this.getActionMap().put("esc", new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                startAction.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ESC_PRESSED"));
+            }
+        });
+    
         // To make the background is at the back.
         this.repaint(); // Force a repaint to ensure the new Z-order is applied
         this.setComponentZOrder(backgroundLabel, this.getComponentCount() - 1);
@@ -147,17 +159,18 @@ public class GamePanel extends JPanel {
 
     public void continueGame() {
 
-        SaveData data = saveManager.load();
-        if (data != null) {
+        SaveData data = saveMan.load();
+        if (data != null && data.playerName != null && data.currentScript != null) {
 
             this.playerName = data.playerName;
             this.currentLine = data.currentLine;
             loadScript(data.currentScript);
             updateContent();
             musicMan.updateMusic(data.currentScript);
+            System.out.println("Resume for save: " + data.currentScript + " at line " + currentLine);
         } else {
 
-            JOptionPane.showMessageDialog(this, "No save data found. :(");
+            JOptionPane.showMessageDialog(this, "No save data found. :( starting a new game.");
             startNewGame();
         }
     }
@@ -165,7 +178,7 @@ public class GamePanel extends JPanel {
 
         currentLine++;
         if (currentLine < script.size()) {
-            saveManager.save(currentScriptLine, playerName, currentLine);
+            saveMan.save(currentScriptLine, playerName, currentLine);
 
             updateContent();
             musicMan.playSound("Turning_pages.wav");
@@ -194,22 +207,6 @@ public class GamePanel extends JPanel {
         }
     }
 
-    public void resumeGame() {
-
-        SaveData data = saveManager.load();
-
-        if (data != null) {
-
-            this.playerName = data.playerName;
-            this.currentLine = data.currentLine;
-            loadScript(data.currentScript);
-            JOptionPane.showMessageDialog(this, "Resume for save: " + data.currentScript + " at line " + currentLine);
-        } else {
-            
-            JOptionPane.showMessageDialog(this, "No save file found.");
-            loadScript("intro.json");
-        }
-    }
     
     public void toggleSettings() {
 
@@ -221,6 +218,12 @@ public class GamePanel extends JPanel {
         }
         this.repaint();
     }
+
+    public void stopMusic() {
+
+        musicMan.stopBGM();
+    }
+
     // The private ( ͡° ͜ʖ ͡°)
 
     private String mainCharacterName(String name) {
@@ -366,7 +369,6 @@ public class GamePanel extends JPanel {
         typingMan.typeText(text);
         updateContent();
     }
-
 
 
     @Override

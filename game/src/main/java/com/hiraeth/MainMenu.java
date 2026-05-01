@@ -1,14 +1,12 @@
 package com.hiraeth;
 import javax.swing.*;
-
-import com.hiraeth.Panels.SettingPanel;
-
 import java.awt.*;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.io.File;
+import com.hiraeth.Panels.SettingPanel;
 
 public class MainMenu extends JPanel {
 
@@ -29,6 +27,17 @@ public class MainMenu extends JPanel {
     }
 
     public MainMenu(ActionListener gameStart) {
+
+        //Adaptor for the ESC key.
+        this.getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ESCAPE"), "esc");
+        this.getActionMap().put("esc", new AbstractAction() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                gameStart.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ESC_PRESSED"));
+            }
+        });
 
         this.startAction = gameStart;
         this.setLayout(null);
@@ -103,6 +112,7 @@ public class MainMenu extends JPanel {
 
     // ############################## Method ########################################
 
+
     private JButton buttonStyle(String btnText, int x, int y, ActionListener action) {
 
         //Making new button
@@ -126,7 +136,7 @@ public class MainMenu extends JPanel {
 
                 case "New Game": 
                 File saveFile = new File("Save_Files/Save.json");
-                if(saveFile.exists()) {
+                if (saveFile.exists() && saveFile.length() > 2) {
                     int confirm = JOptionPane.showConfirmDialog(this, 
                         "Starting a New Game, would you like to continue and forgot the save file?",
                         "Warning",
@@ -140,7 +150,7 @@ public class MainMenu extends JPanel {
 
                 case "Load Game": 
                     File file = new File("Save_Files/Save.json");
-                    if (file.exists()) {
+                    if (file.exists() && file.length() > 2) {
 
                         startAction.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "LOAD_GAME"));
                     } else {
@@ -157,7 +167,17 @@ public class MainMenu extends JPanel {
                     break;
                 case "Quit Game": 
 
+                    int confirm = JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to return to exit the game?",
+                    "Exit Game",
+                    JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == 0) {
+
                     System.exit(0);
+                }
+            
                     break;
                 default: 
                 System.out.println("There is no option left");

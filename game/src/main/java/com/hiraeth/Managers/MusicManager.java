@@ -11,11 +11,7 @@ public class MusicManager {
 
     public void playBGM(String soundFile) {
 
-        if (bgm != null && bgm.isRunning()) {
-
-            bgm.stop();
-            bgm.close();
-        }
+       stopBGM();
 
         try {
 
@@ -45,6 +41,14 @@ public class MusicManager {
         } catch (Exception e) {
 
             System.out.println("Error accessing BGM" + e.getMessage());
+        }
+    }
+
+    public void stopBGM() {
+
+        if (bgm != null && bgm.isRunning()) {
+            bgm.stop();
+            bgm.close();
         }
     }
 

@@ -45,6 +45,7 @@ public class SaveManager {
         try {
 
             File file = new File(SAVE_FILE);
+            if (!file.exists() || file.length() == 0 ) return null;
 
             if (file.exists()) {
 

@@ -31,7 +31,7 @@ public class SettingPanel extends JPanel {
         speedValue.setForeground(Color.WHITE);
         speedValue.setBounds(200, 170, 300, 30);
         this.add(speedValue);
-
+        //Sliders
         JSlider speedSlider = new JSlider(10, 100, 30);
         speedSlider.setBounds(150, 120, 300, 50);
         speedSlider.setOpaque(false);
