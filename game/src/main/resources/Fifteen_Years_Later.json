@@ -215,85 +215,85 @@
     {
         "name" : "", 
         "text" : "The drawing room is a cavern of velvet and shadows, lit only by the dying amber glow of a massive hearth.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "", 
         "text" : "The air is thick with the smell of coal smoke and the metallic tang of something you can’t quite name.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "MainChar (Internal)",
         "text" : "So, this is the ‘company’ I’m keeping. A gambler and a stage-actor. The Baron certainly has a type.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : "" 
     },
     {
         "name" : "", 
         "text" : "Your eyes drift to the first man, lounging against the marble mantle. He wears a heavy, dirt-stained coat that looks out of place in such a grand room.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "", 
         "text" : "His skin is pale, save for a jagged, dark scar that maps across his face—a permanent reminder of a life lived underground.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "", 
         "text" : "He doesn't look up as you enter; his focus is entirely on the heavy iron coin he flips.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "", 
         "text" : "Clink. Catch. Clink. Catch.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "MainChar (Internal)",
         "text" : "He looks like he’s counting down the seconds until something explodes. Or until he can rob the place blind.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "", 
         "text" : "Then, your gaze shifts to the man standing opposite him.",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "He is the polar opposite—back straight as a pike, clad in an outfit that mimics a knight of old, though the fabric is a bit too theatrical for a real battlefield. ",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     }, 
     {
         "name" : "",
         "text" : "His hand rests with white-knuckled intensity on the hilt of a prop sword. ",
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     }, 
     {
         "name" : "",
         "text" : "He isn't looking at the fire; he’s staring into the darkness of the room as if expecting a dragon to emerge from the curtains.",
-        "background" : "",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "MainChar (Internal)",
         "text" : "And this one... he looks like he hasn’t blinked since the turn of the century. Is he guarding the fire, or is he afraid it'll go out?", 
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "The silence in the room is heavy, broken only by the rhythmic clink of the coin and the crackle of the fire. ", 
-        "background" : "big_house.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
@@ -317,61 +317,61 @@
     {
         "name" : "",
         "text" : "He looks at you with a sharp, weary gaze that seems to calculate the cost of your coat and the weight of your luggage in seconds.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "Norton",
         "text" : "Names are expensive in a place like this,' he says, his voice raspy and stripped of any warmth.' ",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "norton_sprites/neutral_n.png"
     },
     {
         "name" : "Norton",
         "text" : "But if you’re going to be taking up space, you might as well call me Norton Campbell. Not that it’ll do you much good once the games start.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "norton_sprites/neutral_n.png"
     }, 
     {
         "name" : "",
         "text" : "He doesn't offer anything else, turning his attention back to his iron coin as if you’ve already become part of the wallpaper.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "norton_sprites/neutral_n.png"
     },
     {
         "name" : "",
         "text" : "The man standing guard by the fire finally shifts. He doesn't look at Norton; his focus is entirely on you, though his gaze feels strangely distant, as if he’s looking at a figure in a history book.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "norton_sprites/neutral_n.png"
     }, 
     {
         "name" : "Richard",
         "text" : "A knight does not leave a traveler unacknowledged. I am Richard Sterling.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "richard_sprites/rich.png"
     },
     {
         "name" : "",
         "text" : "He speaks the name with a peculiar, stiff pride, as if he’s still getting used to the way it tastes.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "richard_sprites/rich.png"
     },
     {
         "name" : "Richard",
         "text" : "I suggest you keep close to the light. This house has a habit of swallowing those who wander.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : "richard_sprites/rich.png"
     },
     {
         "name" : "MainChar",
         "text" : "Norton and Richard. Right. Well, since we’re sharing... I’m [Player Name]. I hope we can all get along.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "Your legs start to feel tired, you look around and find a few places where you could sit down.",
-        "background" : "abbey_library1.jpg",
+        "background" : "meet.jpg",
         "image" : ""
     },
     {
@@ -381,6 +381,4 @@
             {"text" : "Stand near Richard", "target" : "richard_scene"}
         ]
     }
-
-
 ]
