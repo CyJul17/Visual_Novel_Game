@@ -1,0 +1,38 @@
+[
+    {
+        "name" : "Butler",
+        "text" : "Sorry for the wait dear guests. The kitchen took a while to prepare for your meals, if you would follow me, I'll lead you to the dining room.",
+        "background" : "abbey_library.jpg",
+        "image" : ""
+    },
+        {
+        "name" : "",
+        "text" : "Norton was the first to move and follow the butler, you followed soon after. Richard trailing behind you slowly.",
+        "background" : "",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "As you entered the dining room, you could smell the appetizing aroma from the table to the entrance.",
+        "background" : "",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Making your way to the nearest chair, you notice the food in front was something you enjoyed. You wonder, how did they know what food you enjoy...",
+        "background" : "",
+        "image" : ""
+    },    
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "'If they know something from my past, it's not as big of a surprise if they know what my favorite food is...'",
+        "background" : "",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "",
+        "background" : "",
+        "image" : ""
+    } 
+]
