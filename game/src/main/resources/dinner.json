@@ -3,7 +3,7 @@
         "name" : "Butler",
         "text" : "Sorry for the wait dear guests. The kitchen took a while to prepare for your meals, if you would follow me, I'll lead you to the dining room.",
         "background" : "hallway.jpg",
-        "image" : "butler_sprites/neutral_b.png"
+        "image" : "butler.png"
     },
         {
         "name" : "",
@@ -39,7 +39,7 @@
         "name" : "Butler",
         "text" : "I trust the meal is to your satisfaction.",
         "background" : "dining.jpg",
-        "image" : "butler_sprites/neutral_b.png"
+        "image" : "butler.png"
     } ,
     {
         "name" : "",
@@ -63,7 +63,7 @@
         "name" : "Butler",
         "text" : "Unfortunately, the games will take a while to begin. The last two participants have yet to arrive. Until then, feel free to roam around the estate.",
         "background" : "dining.jpg",
-        "image" : "butler_sprites/neutral_b.png"
+        "image" : "butler.png"
     } ,
     {
         "name" : "",
