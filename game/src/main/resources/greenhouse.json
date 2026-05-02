@@ -1,0 +1,75 @@
+{
+    {
+        "name" : "",
+        "text" : "You follow after Norton, hoping to learn more about your fellow participant.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The greenhouse air is thick—humid, earthy. The glass panes are fogged, trapping warmth inside. Norton stands near a row of wilting plants, back turned to you.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "You always run off like that after dinner?",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "You always follow people who don’t want company?",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    } ,
+    {
+        "name" : "",
+        "text" : "You lean against a nearby table, unfazed.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    } ,
+    {
+        "name" : "MainChar",
+        "text" : "Depends. Sometimes they’re the interesting ones.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    } ,
+    {
+        "name" : "",
+        "text" : "He doesn’t respond, but you can feel his eyes on you. The silence stretches on, but it’s not uncomfortable. It’s just the two of you, surrounded by the scent of damp soil and decaying leaves.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    } ,
+    {
+        "name" : "MainChar",
+        "text" : "So why are you here?",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    } ,
+    {
+        "name" : "",
+        "text" : "He takes a moment to answer, as if the question is more difficult than it seems.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Same reason as everyone else. I guess.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "That’s vague. You can’t tell if he’s being evasive or just doesn’t know how to explain it.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "type" : "choice",
+        "options" : [
+            {"text" : "Ask him more", "target" : "badend_norton"},
+            {"text" : "Drop it", "target" : "goodend_norton"}
+        ]
+    }
+}
