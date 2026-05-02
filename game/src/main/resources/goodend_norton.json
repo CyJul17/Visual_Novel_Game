@@ -1,0 +1,398 @@
+{
+    {
+        "name" : "MainChar",
+        "text" : "Alright. Keep your secrets.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You see his posture ease up a little, and he gives you a small smile. It’s not much, but it’s something.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Smart little thing you are. It's best not to pry too much. People have their reasons for being the way they are.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/openm_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "You nod, not entirely sure how to respond to that. It’s true, but it’s also frustrating. You want to understand him, but he’s so closed off.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I won't pry further, instead. How about we work with each other. Two heads are better than one, right?",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Oh? and why should I work with you? You don't seem like the type to be of much help.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/smile_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "You raise an eyebrow, taken aback by his question. But you can't deny that he has a point. You don't have any special skills or knowledge that would make you particularly useful in this situation.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "Well, I could watch your back. All I ask is that you watch mine. I don't want to be alone in this place.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "He looks at you for a moment, as if trying to decide whether or not to trust you. Finally, he nods.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "Norton",
+        "text" : "I guess that’s fair. I could use someone to watch my back. Just don’t get in my way, and we should be fine.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/openm_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "Under the moonlight, you and Norton form an uneasy alliance. It’s not exactly a friendship, but it’s something. You both know that you need each other to survive in this place, and that’s enough for now.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+     {
+        "name" : "",
+        "text" : "You spend the rest of the night talking to Norton, getting to know him a little better. He’s not as bad as you thought he would be. He’s actually kind of interesting, in his own way.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The next few days, you and Norton stick together. Getting to know each other better, though sometimes you feel like you're being watched. You try to catch them, but they evade your sight always.",
+        "background" : "abbey_library.jpg",
+        "image" : "norton_sprites/openm_n.png"
+    },
+        {
+        "name" : "",
+        "text" : "Eventually, the last two participants arrive. You all gather at the dining hall for a meal before the 'game' starts. You sit near Norton, and Richard sits across from you.",
+        "background" : "dining_hall.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "After the meal, you are led to a secluded part of the manor. You find yourself deep inside the forest, seperated from your fellow participants.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Your head feels fuzzy, ever since arriving to the manor. You kept having this odd feeling of lightheadedness, and you wonder why. Perhaps your meal had something to do with it.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Despite it, you keep moving forward. Looking for the objective of this 'game'. You have no idea what it is, but you know that you need to find it if you want to win.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "As you walk deeper into the forest, you find a peculiar machine. You decide to investigate it. It seems to be some sort of cipher machince.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You try to figure out how to use it, but it’s not immediately clear. You fiddle with it for a while, trying to get it to work. Finally, you manage to get it to turn on.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+        {
+        "name" : "",
+        "text" : "The machine hums to life, its screens lighting up with a series of cryptic symbols. You realize this is your chance to uncover the truth behind the 'game' and win it.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "As you thinker with the machine, you start to decipher the symbols. It’s a slow process, but you’re making progress. You can feel yourself getting closer to the truth.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+        {
+        "name" : "",
+        "text" : "Just as you’re about to crack the code, you hear a noise behind you. You turn around, and you see one of the last participants to arrive acting eratically.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "They charge at you, their eyes hazy. As if they’re under some sort of influence. You try to defend yourself, but they’re too strong. They overpower you, and you fall to the ground.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+        {
+        "name" : "",
+        "text" : "Just as you think you’re done for, you hear a voice behind you. It’s Norton. He’s there to save you.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Norton pushes the attacker off of you, and they stumble back. Norton stands between you and the attacker, ready to defend you.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+        {
+        "name" : "",
+        "text" : " The attacker seemingly sees Norton as a threat, and they run off into the forest.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Are you okay? That was close. I don’t know what’s wrong with them, but they’re not in their right mind.",
+        "background" : "fnight.jpg",
+        "image" : "norton_sprites/openm_n.png"
+    },
+     {
+        "name" : "",
+        "text" : "He helps you stand up, and you thank him for saving you. You’re not sure what you would have done if he hadn’t been there.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+     {
+        "name" : "",
+        "text" : "Thank you, Norton. I don’t know what I would have done without you.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+     {
+        "name" : "",
+        "text" : "He gives you a cheeky grin, as he brushes off his clothes. It’s a small gesture, but it makes you feel a little better. You’re glad that he’s on your side.",
+        "background" : "fnight.jpg",
+        "image" : "norton_sprites/smile_n.png"
+    },
+     {
+        "name" : "",
+        "text" : "Still, what is going on in this place? Why are people acting like this? You have so many questions, but you know that you need to focus on surviving. You can worry about the answers later.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "I found another machine like this one,",
+        "background" : "fnight.jpg",
+        "image" : "norton_sprites/openm_n.png"
+    },
+    {
+        "name" : "Norton",
+        "text" : "I got a code, and while I was looking around and saw that the gate we went though earlier was closed. I think we can use the code to open it.",
+        "background" : "fnight.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "You nod, and you both head towards the gate. You input the code that Norton found, and to your surprise, it works. The gate opens, revealing a new area of the forest.",
+        "background" : "fnight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "As you made your way through the gate, you can’t help but feel a sense of hope. A step closer to finding your childhood friend.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You and Norton continue to explore the new area, working together to decipher more codes and uncover more secrets. It’s not easy, but you’re making progress. You can feel yourself getting closer to what you came here for.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "Walking through the forest, you and Norton come across a clearing. In the center of the clearing, you see a figure sitting on a bench. It’s Richard.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "Richard",
+        "text" : "My oh my, look who we have here. It’s been a while, hasn’t it? I thought you wouldn’t make it this far.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/smile closed.png"    
+    },
+    {
+        "name" : "Norton",
+        "text" : "Seems like you got here first.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "norton_sprites/neutral_n.png"    
+    },
+    {
+        "name" : "Richard",
+        "text" : "Mhmm, that I did. I’ve been here for a while, waiting for you to catch up. I was starting to think you wouldn’t make it.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/rich.png"    
+    },
+    {
+        "name" : "Richard",
+        "text" : "I was asked to give this to you.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/smile closed.png"    
+    },
+    {
+        "name" : "",
+        "text" : "He says handing you a small box. You take it, looking at it curiously. It’s small, and it’s wrapped in a simple piece of paper. You can’t help but wonder what’s inside.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "Richard",
+        "text" : "I was told to tell you that you should open it once you leave this place. I don’t know what’s inside, but I’m sure it’s important.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/rich.png"    
+    },
+    {
+        "name" : "",
+        "text" : "Holding in your curiosity, you nod and thank Richard for the box. You know that you need to focus on getting out of this place first, and then you can worry about what’s inside the box.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "Richard",
+        "text" : "I already got what I came here for so, I'll be leaving now. ",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/smile closed.png"    
+    },
+    {
+        "name" : "",
+        "text" : "He stands up, giving you a small wave as he starts to walk away. But stopss for a moment, looking back at you and Norton.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "He gives you a small smile, and you can’t help but feel a little bit of warmth in your chest. Feeling somewhat of a connection to him, even though you barely knew why.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/smile closed.png"    
+    },
+    {
+        "name" : "Richard",
+        "text" : "Take care, you two. I shall go ahead, also [Player Name].",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/uncanny_r.png"    
+    },
+    {
+        "name" : "",
+        "text" : "He looks at you with a complicated expression, and you can’t quite tell what he’s thinking. But you can sense that there’s something he's not telling you.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/uncanny_r.png"    
+    },
+    {
+        "name" : "Richard",
+        "text" : "Ah, nevermind. I forgot what I was going to say. I guess I’ll just be on my way now.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "richard_sprites/smile closed.png"    
+    }
+    {
+        "name" : "MainChar",
+        "text" : "Oh, alright then. Take care, Richard.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "He walks away, disappearing into the distance. You and Norton are left alone, the weight of the mysterious box heavy in your hands.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You and Norton eventually find your way out of the forest, and back to the manor. Norton is escorted to a separate room, while you are taken to your own room.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You settle into your room, the mysterious box still in your hands. You can't help but wonder what's inside and what it means for your future.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You decide to open the box, your heart pounding with anticipation. Inside, you find multiple notes.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "Opening the first note, you read the words written in neat handwriting: 'I'm sorry for not keeping my promise. But it's for your own good. I hope you can forgive me one day.'",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "Staring at the note, you can't help but feel a mix of emotions. The note is from your childhood friend, and it seems like they had a reason for not keeping their promise. But you can't help but feel hurt and betrayed.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You read the next note, and it says: 'Our path may have diverged, but I want you to know that I care about you. I hope we can meet again someday, under better circumstances. - Richard'",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "It's confirmed. Richard is your childhood friend. You can't help but feel a sense of relief and happiness, knowing that he's alive and well. But at the same time, you can't help but feel a sense of sadness and longing, knowing that you may never see him again.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You decide to keep the notes, cherishing them as a reminder of your childhood friend and the connection you still have with him. You hope that one day, you'll be able to meet him again and make up for lost time.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "",
+        "text" : "You hear a knock on the door, you open it to find Norton standing there. He looks at you with a small smile, and you can’t help but feel a sense of comfort in his presence.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I suppose you got what you came for, huh? I got what I came for already.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "Norton",
+        "text" : "That's good to hear, I got what I wanted. I came by to say goodbye. I’m leaving tomorrow.",
+        "background" : "room.jpg",
+        "image" : "norton_sprites/smile_n.png"    
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I guess it’s time to say goodbye, then. It’s been nice working with you, Norton. I hope we can meet again someday.",
+        "background" : "room.jpg",
+        "image" : ""    
+    },
+    {
+        "name" : "Norton",
+        "text" : "Heh, yeah. It’s been an interesting experience, to say the least. Take care of yourself, alright?",
+        "background" : "room.jpg",
+        "image" : "norton_sprites/smile_n.png"    
+    },
+    {
+        "name" : "",
+        "text" : "",
+        "background" : "goodend_n.jpg",
+        "image" : ""    
+    }
+}
