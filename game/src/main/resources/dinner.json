@@ -2,79 +2,79 @@
     {
         "name" : "Butler",
         "text" : "Sorry for the wait dear guests. The kitchen took a while to prepare for your meals, if you would follow me, I'll lead you to the dining room.",
-        "background" : "vase_room.jpg",
+        "background" : "hallway.jpg",
         "image" : "butler_sprites/neutral_b.png"
     },
         {
         "name" : "",
         "text" : "Norton was the first to move and follow the butler, you followed soon after. Richard trailing behind you slowly.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "As you entered the dining room, you could smell the appetizing aroma from the table to the entrance.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "Making your way to the nearest chair, you notice the food in front was something you enjoyed. You wonder, how did they know what food you enjoy...",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     },    
     {
         "name" : "MainChar (Internal)",
         "text" : "'If they know something from my past, it's not as big of a surprise if they know what my favorite food is...'",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     },
     {
         "name" : "",
         "text" : "The clink of cutlery and low murmur of breath filled the dining room, but it wasn’t comforting. There was hidden tension in the air. None of you spoke while you ate, only the sound of cutlery filled the air.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     },
     {
         "name" : "Butler",
         "text" : "I trust the meal is to your satisfaction.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : "butler_sprites/neutral_b.png"
     } ,
     {
         "name" : "",
         "text" : "He stood at the head of the table, hands folded neatly behind his back, posture impeccable. His pale gaze swept across the three of you, lingering just a second too long on each face.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     } ,
     {
         "name" : "MainChar",
         "text" : "It was, compliments to the chef. ",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     } ,
     {
         "name" : "",
         "text" : "Norton only mutters something, while Richard sat with a polite smile. ",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     } ,
     {
         "name" : "Butler",
         "text" : "Unfortunately, the games will take a while to begin. The last two participants have yet to arrive. Until then, feel free to roam around the estate.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : "butler_sprites/neutral_b.png"
     } ,
     {
         "name" : "",
         "text" : "The butler then leaves immediately, not even waiting for you to ask questions any further.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     } ,
     {
         "name" : "MainChar (Internal)",
         "text" : "Oh well, I guess I could ask him another time.",
-        "background" : "vase_room.jpg",
+        "background" : "dining.jpg",
         "image" : ""
     } ,
     {
