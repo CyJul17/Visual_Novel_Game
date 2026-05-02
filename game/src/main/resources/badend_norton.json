@@ -1,0 +1,140 @@
+{
+    {
+        "name" : "MainChar",
+        "text" : "Come on. No one comes to a place like this without a reason. Money? Running from something? Or did you mess up so badly this was your only option?",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The room seems to get colder, you feel as though you asked a question that should not be asked. Norton just stands there, staring at you with his cold, dead eyes.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You feel a chill run down your spine, and you can feel Norton's gaze burning into you. You try to shake it off, but the feeling only intensifies.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "Norton",
+        "text" : "You talk too much, don’t you? You’re the type of person who can’t keep their mouth shut, even when it’s in their best interest to do so.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I-t’s not like that. I just thought-",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Sometimes it’s better to just stay quiet. You never know when you might say something that could get you into trouble.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "He leaves it at that, but you can feel the weight of his words hanging in the air. You can’t help but wonder if he’s right. Maybe you should have just kept your mouth shut.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "He doesn’t say anything else, and leaves you alone in the greenhouse. You can’t help but feel a sense of unease, as if you’ve just had a brush with something dark and dangerous.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "I messed up. I shouldn’t have said anything. I should have just kept quiet.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Days pass, Norton continues to ignore you, and you can feel the tension between you growing. You try to avoid him as much as possible, but it’s hard to escape his presence in the house.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Soon, the last two participants finally arrive. You can feel the tension in the air as they enter the house, and you can’t help but wonder how they will fit into this strange dynamic.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You don't get to know much about them before you are all taken to a remote part of the manor. A seeminly abandoned part of the forest, the game is to take place here.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The forest is eerily quiet, and you can feel the eyes of the other participants watching you from the shadows. You can’t help but feel a sense of dread, as if you’re being hunted by something unseen.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You have split up, as per the rules of the game, and you find yourself alone in the forest. You can feel the weight of Norton's gaze on you, even though he’s not physically present.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You are currently deciphering a machine that seems to be some sort of puzzle, and you can feel the pressure mounting as you try to figure it out.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "As you are almost done, from a distance you can hear the scream of one of the other participants. You can feel your heart racing as you realize that something is very wrong.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Before you can react, you feel something hit the back of your head, and everything goes black. You feel blood trickling down your face, and you can hear the sound of footsteps retreating into the distance.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You try to look to where the sound is coming from, you spot a familiar figure disappearing into the trees. It’s Norton. You can feel a sense of betrayal and fear wash over you as you realize that he was the one who attacked you.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "Sorry, but you were getting on my nerves. I couldn’t let you keep talking like that.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "You slowly feel yourself losing consciousness, and you can feel the cold embrace of death closing in on you. You can’t help but wonder if this is how it all ends for you, alone in the forest.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar (Internal)",
+        "text" : "I-I still don't know where 'he' is- I don't want to die yet!",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "As you slowly lose consciousness, you hear heavy footsteps approaching you. You can feel the presence of someone standing over you.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    },
+        {
+        "name" : "???",
+        "text" : "I was too late, but I will avenge you. I will make sure that Norton pays for what he did to you.",
+        "background" : "Combined_background_Blue.jpg",
+        "image" : ""
+    }
+}
