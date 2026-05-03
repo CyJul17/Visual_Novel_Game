@@ -1,0 +1,87 @@
+{
+    {
+        "name" : "",
+        "text" : "You walk towards the garden, following the winding path.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The garden is quieter than the rest of the manor. Overgrown hedges, cracked stone paths. Pale flowers that seem to glow under the moonlight.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "Hmm? What seems to be the problem, [Player Name]?",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I was just curious about the garden. It’s quite peaceful here.",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "Richard",
+        "text" : "I see. Well, I suppose it's a nice place to just sit and think.",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/uncanny_r.png"
+    },
+    {
+        "name" : "",
+        "text" : "You hum in agreement, you both sit in silence for a moment, the only sound being the rustling of leaves and the distant hoot of an owl.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "After a while, Richard breaks the silence.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "I suppose you didn't just come here to admire the flowers, did you?",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "To be honest, no. I was hoping to talk to you about something.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You take a deep breath, trying to find the right words to say.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "Have we perhaps met before? I have a feeling that I know you from somewhere.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Richard looks at you for a moment, his expression unreadable. Before giving you a polite smile.",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "Richard",
+        "text" : "Not that I can recall. But I suppose it's possible. I'm not the best at remembering faces.",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "type" : "choice",
+        "options" : [
+            {"text" : "Ask why he came to the manor", "target" : "badend_richard"},
+            {"text" : "You remind me of someone", "target" : "goodend_richard"}
+        ]
+    }
+}
