@@ -117,7 +117,7 @@
         {
             "name" : "",
             "text" : "He only smiles in response, but you can see the glint of something in his eyes.",
-            "background" : "",
+            "background" : "hallway.jpg",
             "image" : ""
         },
         {
@@ -159,7 +159,7 @@
         {
             "name" : "",
             "text" : "Your body crashes against the floor, pain radiating through your limbs. The feeling of betrayal washing over you as you realize that Richard was the one who pushed you.",
-            "background" : "",
+            "background" : "stairs.png",
             "image" : ""
         },
         {
@@ -177,7 +177,7 @@
         {
             "name" : "",
             "text" : "",
-            "background" : "badend_richard.jpg",
+            "background" : "badend_r.jpg",
             "image" : ""
         }
     ]
