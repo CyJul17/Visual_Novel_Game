@@ -1,0 +1,184 @@
+{
+    "badend_richard" : [
+        {
+            "name" : "MainChar",
+            "text" : "Maybe i'm just mistaking you for someone else.",
+            "background" : "gardennight.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "You try to change the subject, you don't want to make Richard uncomfortable.",
+            "background" : "gardennight.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "MainChar",
+            "text" : "May I know why you came to the manor? If you don't mind me asking.",
+            "background" : "gardennight.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "Richard seems to hesitate for a moment, as if he's trying to decide how much to reveal. His posture tense.",
+            "background" : "gardennight.jpg",
+            "image" : "richard_sprites/uncanny_r.png"
+        },
+        {
+            "name" : "Richard",
+            "text" : "I'm looking for my dear sister. She has ran away from home and I have been trying to find her for a while now. I thought I could find some clues here at the manor.",
+            "background" : "gardennight.jpg",
+            "image" : "richard_sprites/smile closed.png"
+        },
+        {
+            "name" : "MainChar",
+            "text" : "Oh, I hope you find her soon. I can't imagine how hard it must be for you.",
+            "background" : "gardennight.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "He only nods in response, his expression somber. Though you can't help but feel that there's something wrong. You just can't put your finger on it.",
+            "background" : "gardennight.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "Richard",
+            "text" : "It's getting late, you should probably head back to your room. You don't want to be out here alone at night.",
+            "background" : "gardennight.jpg",
+            "image" : "richard_sprites/uncanny_r.png"
+        },
+        {
+            "name" : "",
+            "text" : "You say your goodbyes and head back to your room, but you can't shake off the feeling of unease.",
+            "background" : "hallway.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "You can't help but wonder if Richard is really who he says he is, and if he's really looking for his sister.",
+            "background" : "room.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "The next day...",
+            "background" : "",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "You are exploring the manor when you stumble upon a hidden room. Inside, you find a collection of newspaper clippings and photos. They all seem to be about a missing twins from the Sterling family.",
+            "background" : "abbey library.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "You dig further and find out that the missing twins were actually Richard and his sister. The newspaper clippings reveal that they were involved in a kidnapping case, and that Richard was found 2 years later after his sister was found.",
+            "background" : "abbey library.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "Looking at the date, you realize that the time when Richard was found matches the time when your childhood friend was adopted.",
+            "background" : "abbey library.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "MainChar",
+            "text" : "This... could it be a coincidence?",
+            "background" : "abbey library.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "Unbeknownst to you, a shadowy figure has been watching you from the doorway.",
+            "background" : "abbey library.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "Turning your head to the clock, you see that it's already late at night. You decide to head back to your room, but as you walk down the hallway, you feel a presence behind you.",
+            "background" : "hallway.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "Richard",
+            "text" : "Oh, [Player Name], I didn't expect to see you here.",
+            "background" : "hallway.jpg",
+            "image" : "richard_sprites/uncanny_r.png"
+        },
+        {
+            "name" : "MainChar",
+            "text" : "Richard! I didn't expect to see you here either. I was just heading back to my room.",
+            "background" : "hallway.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "He only smiles in response, but you can see the glint of something in his eyes.",
+            "background" : "",
+            "image" : ""
+        },
+        {
+            "name" : "Richard",
+            "text" : "Would you like me to walk you back to your room?",
+            "background" : "hallway.jpg",
+            "image" : "richard_sprites/smile closed.png"
+        },
+        {
+            "name" : "MainChar",
+            "text" : "Don't worry about it, I can manage on my own. You don't have to go out of your way for me.",
+            "background" : "hallway.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "Richard",
+            "text" : "I insist, it's the least I can do.",
+            "background" : "hallway.jpg",
+            "image" : "richard_sprites/uncanny_r.png"
+        },
+        {
+            "name" : "",
+            "text" : "You nod helplessly, you don't want to upset him. As you walk together, you can't help but feel that something is off.",
+            "background" : "hallway.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "As you reach the end of the hallway, and turn the corner to the stairs, you feel a pair of hands push you from behind.",
+            "background" : "hallway.jpg",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "You stumble forward, and before you can react, you find yourself falling down the stairs.",
+            "background" : "stairs.png",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "Your body crashes against the floor, pain radiating through your limbs. The feeling of betrayal washing over you as you realize that Richard was the one who pushed you.",
+            "background" : "",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "Your body feels heavy, you can't move. You try to scream but no sound comes out. You can only watch as Richard's expression turn into a remorseful one.",
+            "background" : "richardstair.png",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "It's a pity it has come to this [Player Name]. But I can't let you interfere any further. And I apologize, I could not keep my promise to you.",
+            "background" : "stairs.png",
+            "image" : ""
+        },
+        {
+            "name" : "",
+            "text" : "",
+            "background" : "badend_richard.jpg",
+            "image" : ""
+        }
+    ]
+}
