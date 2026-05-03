@@ -1,0 +1,314 @@
+{
+    {
+        "name" : "MainChar",
+        "text" : "You just reminded me of an old friend of mine. We used to be really close when we were kids, but we lost touch long ago. I wonder how he's doing now.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Richard's face is unreadable, but you can sense a hint of sadness in his eyes. He seems to be lost in thought for a moment.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "I'm sorry to hear that. I'm sure he's doing well wherever he is. Do you want to talk about him?",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "",
+        "text" : "It's a bit awkward to talk about, but you decide to share a few memories of your childhood friend with Richard. You talk about the fun times you had together, the adventures you went on, and the bond you shared.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Hearing your stories, Richard's expression softens. Recalling his own childhood, he seems to be reminiscing about his past as well.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "I'm glad you have such fond memories of your friend. It's important to hold onto those memories, even if you can't see each other anymore.",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "",
+        "text" : "You nod in agreement, feeling a sense of comfort in Richard's words. It's nice to know that someone else understands the pain of losing touch with a close friend.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "It's getting late, I plan to head back to my room soon. Do you want me to walk you back?",
+        "background" : "gardennight.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "That would be nice, thank you.",
+        "background" : "gardennight.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "He smiles warmly at you, and accompanies you back to your room. As you walk, you can't help but feel a sense of connection with Richard.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "Good night, [Player Name]. It was wonderful talking to you.",
+        "background" : "hallway.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "",
+        "text" : "Thanking him, you head to your room and drift off to sleep.",
+        "background" : "room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You spend the next few days getting to know Richard better. Though closed off at first, he gradually opens up to you, sharing stories about his life and his family.",
+        "background" : "vase_room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Butler",
+        "text" : "Pardon me, but I have a message for you. The last two participants have arrived. The game will begin this evening. Please be prepared.",
+        "background" : "vase_room.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "",
+        "text" : "You nod in response, feeling a mix of excitement and nervousness about the upcoming games. Richard looks unaffected by the news.",
+        "background" : "vase_room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "It's finally beginning.",
+        "background" : "vase_room.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Richard only hums in response, but you can see a glint of excitement in his eyes. He seems to be looking forward to the games as well.",
+        "background" : "vase_room.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "",
+        "text" : "Soon you are all gathered in the main hall, waiting for the games to begin. Richard stands next to you, while Norton and the other participants are behind you.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Butler",
+        "text" : "The games will begin shortly. You are to find clues scattered around the manor, and solve puzzles to progress.",
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "Butler",
+        "text" : "If you succeed, you will get what you seek. That is all I can say for now. Good luck to all of you.",
+        "background" : "hallway.jpg",
+        "image" : "butler.png"
+    },
+    {
+        "name" : "",
+        "text" : "The butler finishes his announcement, and you are left alone to begin searching. Norton is the first to leave, followed by the other participants.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Richard looks at you, and gives you a small nod before heading in the opposite direction. You are the last to leave, heading towards greenhouse.",
+        "background" : "hallway.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You look around the greenhouse, searching for any clues. Beside the beehive, you find a small box.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "'For promises made, and promises kept.' The box is locked, you look around for any hints on how to open it.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Footsteps can be heard approaching the greenhouse. You quickly hide the box and turn around to see Norton walking in.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Norton",
+        "text" : "What a surprise to see you here. Don't mind me, I'm just looking for clues like everyone else.",
+        "background" : "grenhou.jpg",
+        "image" : "norton_sprites/neutral_n.png"
+    },
+    {
+        "name" : "",
+        "text" : "You nod in response, trying to act casual. Norton seems to be in a good mood, he might have found a clue that he's excited about.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "The two of you search the greenhouse in silence, eventually after not finding anything, Norton leaves the greenhouse.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You watch Norton leave, and decide to continue your search. As you explore the greenhouse, you come across a hidden mechanism behind a potted plant.",
+        "background" : "grenhou.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You activate the mechanism, and a hidden entrance opens up, leading to a secret passageway. You cautiously enter the passageway, and find yourself in fountain room.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "Hmm? [Player Name], what are you doing here?",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "Richard! I didn't expect to see you here. I found a hidden passageway in the greenhouse, and it led me here.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Hearing your explanation, Richard's expression changes to one of surprise. He seems to be impressed by your discovery.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "Impressive, [Player Name]. It seems we both have a knack for finding these hidden secrets.",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I was just lucky. I didn't expect to find anything like this.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "He only smiles in response, looking down at the fountain. You spot something shiny at the bottom of the fountain, and you reach in to grab it. It's a small key.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "A key? I wonder what it opens.",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "",
+        "text" : "The key seems to fit the box you found in the greenhouse. You show it to Richard, and he nods in recognition.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "I see, it seems you found the key to the box. Do you plan to open it?",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I was thinking of opening it, but I wanted to make sure it was the right key first.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "You bring the key to the box, and it fits perfectly. You open the box, and inside you find a note with a few pictures.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Richard curiously looks at the note, and his expression changes to one of shock. The pictures on the note are of him, taken from a childhood long forgotten.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "What... how could these photos be here?",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/uncanny_r.png"
+    },
+    {
+        "name" : "",
+        "text" : "You look at the photos, and recognize that they are of Richard as a child, playing in the garden with a friend. The friend in the photos looks just like you.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "These photos... they look like they were taken a long time ago. Do you recognize the person in the photos with you?",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "Richard looks at the photos for a moment, and then looks up at you with wide eyes. He seems to be trying to process the information.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "It's you... my 'liege'.",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/rich.png"
+    },
+    {
+        "name" : "",
+        "text" : "The corners of your mouth twitch upwards at his words. As you tackle him in a hug.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "MainChar",
+        "text" : "I finally found you! I thought I would never see you again!",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "",
+        "text" : "His body stiffens for a moment, but then he relaxes and hugs you back, and you can feel the warmth of his embrace. It's a moment of genuine connection between the two of you.",
+        "background" : "fountain.jpg",
+        "image" : ""
+    },
+    {
+        "name" : "Richard",
+        "text" : "That you did. We have a lot of catching up to do [Player Name].",
+        "background" : "fountain.jpg",
+        "image" : "richard_sprites/smile closed.png"
+    },
+    {
+        "name" : "",
+        "text" : "",
+        "background" : "goodend_r.jpg",
+        "image" : ""
+    },
+}
